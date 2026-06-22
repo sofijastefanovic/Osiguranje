@@ -28,112 +28,126 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnKlijent = new System.Windows.Forms.Button();
+            this.btnPolisa = new System.Windows.Forms.Button();
+            this.btnSteta = new System.Windows.Forms.Button();
+            this.btnAngazovana = new System.Windows.Forms.Button();
+            this.btnProcena = new System.Windows.Forms.Button();
+            this.btnFaza = new System.Windows.Forms.Button();
+            this.btnPredmet = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnKlijent
             // 
-            this.button1.Font = new System.Drawing.Font("Poiret One", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(26, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(276, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "KLIJENT";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnKlijent.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnKlijent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKlijent.Location = new System.Drawing.Point(26, 12);
+            this.btnKlijent.Name = "btnKlijent";
+            this.btnKlijent.Size = new System.Drawing.Size(276, 50);
+            this.btnKlijent.TabIndex = 0;
+            this.btnKlijent.Text = "KLIJENT";
+            this.btnKlijent.UseVisualStyleBackColor = false;
+            this.btnKlijent.Click += new System.EventHandler(this.btnKlijent_Click); // Povezano!
             // 
-            // button2
+            // btnPolisa
             // 
-            this.button2.Font = new System.Drawing.Font("Poiret One", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(26, 68);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(276, 50);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "POLISA";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPolisa.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnPolisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPolisa.Location = new System.Drawing.Point(26, 68);
+            this.btnPolisa.Name = "btnPolisa";
+            this.btnPolisa.Size = new System.Drawing.Size(276, 50);
+            this.btnPolisa.TabIndex = 1;
+            this.btnPolisa.Text = "POLISA";
+            this.btnPolisa.UseVisualStyleBackColor = false;
+            this.btnPolisa.Click += new System.EventHandler(this.btnPolisa_Click); // Povezano!
             // 
-            // button3
+            // btnSteta
             // 
-            this.button3.Font = new System.Drawing.Font("Poiret One", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(26, 124);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(276, 50);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "STETA";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSteta.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnSteta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSteta.Location = new System.Drawing.Point(26, 124);
+            this.btnSteta.Name = "btnSteta";
+            this.btnSteta.Size = new System.Drawing.Size(276, 50);
+            this.btnSteta.TabIndex = 2;
+            this.btnSteta.Text = "STETA";
+            this.btnSteta.UseVisualStyleBackColor = false;
+            this.btnSteta.Click += new System.EventHandler(this.btnSteta_Click); // Povezano!
             // 
-            // button4
+            // btnAngazovana
             // 
-            this.button4.Font = new System.Drawing.Font("Poiret One", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(26, 236);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(276, 50);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "ANGAZOVANA OSOBA";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnAngazovana.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnAngazovana.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAngazovana.Location = new System.Drawing.Point(26, 236);
+            this.btnAngazovana.Name = "btnAngazovana";
+            this.btnAngazovana.Size = new System.Drawing.Size(276, 50);
+            this.btnAngazovana.TabIndex = 3;
+            this.btnAngazovana.Text = "ANGAZOVANA OSOBA";
+            this.btnAngazovana.UseVisualStyleBackColor = false;
+            this.btnAngazovana.Click += new System.EventHandler(this.btnAngazovana_Click); // Povezano!
             // 
-            // button5
+            // btnProcena
             // 
-            this.button5.Font = new System.Drawing.Font("Poiret One", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(26, 180);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(276, 50);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "PROCENA";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnProcena.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnProcena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcena.Location = new System.Drawing.Point(26, 180);
+            this.btnProcena.Name = "btnProcena";
+            this.btnProcena.Size = new System.Drawing.Size(276, 50);
+            this.btnProcena.TabIndex = 4;
+            this.btnProcena.Text = "PROCENA";
+            this.btnProcena.UseVisualStyleBackColor = false;
+            this.btnProcena.Click += new System.EventHandler(this.btnProcena_Click); // Povezano!
             // 
-            // button6
+            // btnFaza
             // 
-            this.button6.Font = new System.Drawing.Font("Poiret One", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(26, 292);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(276, 50);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "FAZA OBRADE STETE";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btnFaza.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnFaza.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFaza.Location = new System.Drawing.Point(26, 292);
+            this.btnFaza.Name = "btnFaza";
+            this.btnFaza.Size = new System.Drawing.Size(276, 50);
+            this.btnFaza.TabIndex = 5;
+            this.btnFaza.Text = "FAZA OBRADE STETE";
+            this.btnFaza.UseVisualStyleBackColor = false;
+            this.btnFaza.Click += new System.EventHandler(this.btnFaza_Click); // ISPRAVLJENO sa button6_Click na btnFaza_Click
             // 
-            // button7
+            // btnPredmet
             // 
-            this.button7.Font = new System.Drawing.Font("Poiret One", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(26, 348);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(276, 50);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "PREDMET OSIGURANJA";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnPredmet.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnPredmet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPredmet.Location = new System.Drawing.Point(26, 348);
+            this.btnPredmet.Name = "btnPredmet";
+            this.btnPredmet.Size = new System.Drawing.Size(276, 50);
+            this.btnPredmet.TabIndex = 6;
+            this.btnPredmet.Text = "PREDMET OSIGURANJA";
+            this.btnPredmet.UseVisualStyleBackColor = false;
+            this.btnPredmet.Click += new System.EventHandler(this.btnPredmet_Click); // Povezano!
             // 
             // GlavnaForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Salmon;
             this.ClientSize = new System.Drawing.Size(334, 416);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPredmet);
+            this.Controls.Add(this.btnFaza);
+            this.Controls.Add(this.btnProcena);
+            this.Controls.Add(this.btnAngazovana);
+            this.Controls.Add(this.btnSteta);
+            this.Controls.Add(this.btnPolisa);
+            this.Controls.Add(this.btnKlijent);
             this.Name = "GlavnaForma";
-            this.Text = "GlavnaForma";
+            this.Text = "Osiguranje";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnKlijent;
+        private System.Windows.Forms.Button btnPolisa;
+        private System.Windows.Forms.Button btnSteta;
+        private System.Windows.Forms.Button btnAngazovana;
+        private System.Windows.Forms.Button btnProcena;
+        private System.Windows.Forms.Button btnFaza;
+        private System.Windows.Forms.Button btnPredmet;
     }
 }
