@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Osiguranje.Forme;
 
 namespace Osiguranje.Forme
 {
@@ -17,12 +18,36 @@ namespace Osiguranje.Forme
             InitializeComponent();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void btnKlijent_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnPolisa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSteta_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnProcena_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAngazovana_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnFaza_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPredmet_Click(object sender, EventArgs e)
         {
 
         }
