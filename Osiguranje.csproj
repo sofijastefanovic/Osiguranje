@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
+    <Compile Include="DTOManager.cs" />
     <Compile Include="DTOs.cs" />
     <Compile Include="Entiteti\Agent.cs" />
     <Compile Include="Entiteti\AngazovanaOsoba.cs" />

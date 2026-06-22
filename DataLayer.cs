@@ -22,6 +22,7 @@ namespace Osiguranje
                     .Database(OracleClientConfiguration.Oracle10
                     .ConnectionString("Data Source=localhost;User Id=S19943;Password=jagodicaBoobica"))
                     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Polisa>())
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Klijent>())
                     .BuildSessionFactory();
             }
             return _factory.OpenSession();
