@@ -27,6 +27,7 @@ namespace Osiguranje.Forme
         {
             PolisaForma otvoriPolisu = new PolisaForma();
             otvoriPolisu.ShowDialog();
+            //doabr pul brissi ovoo
         }
 
         private void btnSteta_Click(object sender, EventArgs e)
