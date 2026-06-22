@@ -25,6 +25,8 @@ namespace Osiguranje.Forme
 
         private void btnPolisa_Click(object sender, EventArgs e)
         {
+            KlijentiForm otvoriKlijenta = new KlijentiForm();
+            otvoriKlijenta.ShowDialog();
             PolisaForma otvoriPolisu = new PolisaForma();
             otvoriPolisu.ShowDialog();
             //doabr pul brissi ovoo
