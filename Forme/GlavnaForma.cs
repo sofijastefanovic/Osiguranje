@@ -25,7 +25,8 @@ namespace Osiguranje.Forme
 
         private void btnPolisa_Click(object sender, EventArgs e)
         {
-
+            PolisaForma otvoriPolisu = new PolisaForma();
+            otvoriPolisu.ShowDialog();
         }
 
         private void btnSteta_Click(object sender, EventArgs e)
