@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
+    <Compile Include="DTOs.cs" />
     <Compile Include="Entiteti\Agent.cs" />
     <Compile Include="Entiteti\AngazovanaOsoba.cs" />
     <Compile Include="Entiteti\AutoOsiguranje.cs" />
@@ -156,6 +157,12 @@
     <Compile Include="Forme\PolisaForma.Designer.cs">
       <DependentUpon>PolisaForma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\KlijentiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\KlijentiForm.Designer.cs">
+      <DependentUpon>KlijentiForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mapiranja\AgentMap.cs" />
     <Compile Include="Mapiranja\AngazovanaOsobaMap.cs" />
     <Compile Include="Mapiranja\AutoOsiguranjeMap.cs" />
@@ -197,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\PolisaForma.resx">
       <DependentUpon>PolisaForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\KlijentiForm.resx">
+      <DependentUpon>KlijentiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
