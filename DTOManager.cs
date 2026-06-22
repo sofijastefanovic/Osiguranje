@@ -11,6 +11,8 @@ namespace Osiguranje
 {
     public class DTOManager
     {
+        #region Klijent Metode
+
         public static List<KlijentPregled> vratiSveKlijente()
         {
             List<KlijentPregled> klijenti = new List<KlijentPregled>();
@@ -92,5 +94,111 @@ namespace Osiguranje
                 System.Windows.Forms.MessageBox.Show("Greška pri brisanju klijenta: " + ec.Message);
             }
         }
+
+        #endregion
+
+        #region Polisa Metode
+
+        public static List<PolisaPregled> vratiSvePolise()
+        {
+            List<PolisaPregled> polise = new List<PolisaPregled>();
+
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var svePolise = s.Query<Polisa>().ToList();
+
+                    foreach (var p in svePolise)
+                    {
+                        // POPRAVKA: Pošto konstruktor PolisaPregled traži stringove za Vlasnika i Agenta,
+                        // izvlačimo tekstualne podatke iz povezanih objekata (proveravamo i da li nisu null)
+                        string vlasnikPrikaz = p.VlasnikPolise != null ? p.VlasnikPolise.ImePrezimeNaziv : "";
+                        string agentPrikaz = p.Agent != null ? p.Agent.Id.ToString() : ""; // Ili p.Agent.Ime/ImePrezime ako postoji to polje
+
+                        polise.Add(new PolisaPregled(
+                            p.BrojPolise,
+                            p.DatumZakljucenja,
+                            p.PeriodVazenja,
+                            p.TipOsiguranja,
+                            p.Status,
+                            p.OsnovnaPremija,
+                            p.Valuta,
+                            p.NacinPlacanja,
+                            p.TipPolise,
+                            vlasnikPrikaz,         // Prosleđen string umesto celog objekta Klijent
+                            agentPrikaz            // Prosleđen string umesto celog objekta AngazovanaOsoba
+                        ));
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri učitavanju polisa: " + ec.Message);
+            }
+
+            return polise;
+        }
+
+        public static void dodajPolisu(PolisaBasic p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    Polisa polisa = new Polisa();
+
+                    polisa.BrojPolise = p.BrojPolise;
+                    polisa.DatumZakljucenja = p.DatumZakljucenja;
+                    polisa.PeriodVazenja = p.PeriodVazenja;
+                    polisa.TipOsiguranja = p.TipOsiguranja;
+                    polisa.Status = p.Status;
+                    polisa.OsnovnaPremija = p.OsnovnaPremija;
+                    polisa.Valuta = p.Valuta;
+                    polisa.NacinPlacanja = p.NacinPlacanja;
+                    polisa.TipPolise = p.TipPolise;
+
+                    // POPRAVKA: Preko ID-jeva iz PolisaBasic učitavamo cele entitete iz baze i vežemo ih za polisu
+                    if (p.IdVlasnikaPolise > 0)
+                    {
+                        polisa.VlasnikPolise = s.Load<Klijent>(p.IdVlasnikaPolise);
+                    }
+
+                    if (p.IdAngazovaneOsobe > 0)
+                    {
+                        polisa.Agent = s.Load<AngazovanaOsoba>(p.IdAngazovaneOsobe);
+                    }
+
+                    s.Save(polisa);
+                    s.Flush();
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri dodavanju polise: " + ec.Message);
+            }
+        }
+
+        public static void obrisiPolisu(int brojPolise)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    Polisa polisa = s.Get<Polisa>(brojPolise);
+
+                    if (polisa != null)
+                    {
+                        s.Delete(polisa);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri brisanju polise: " + ec.Message);
+            }
+        }
+        #endregion
     }
 }
