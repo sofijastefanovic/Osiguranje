@@ -152,12 +152,6 @@
     <Compile Include="Forme\GlavnaForma.Designer.cs">
       <DependentUpon>GlavnaForma.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\PolisaDodajForma.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forme\PolisaDodajForma.Designer.cs">
-      <DependentUpon>PolisaDodajForma.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forme\PolisaForma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,9 +202,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forme\GlavnaForma.resx">
       <DependentUpon>GlavnaForma.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forme\PolisaDodajForma.resx">
-      <DependentUpon>PolisaDodajForma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\PolisaForma.resx">
       <DependentUpon>PolisaForma.cs</DependentUpon>
