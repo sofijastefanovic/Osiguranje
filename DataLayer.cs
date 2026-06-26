@@ -21,9 +21,9 @@ namespace Osiguranje
             if (_factory == null)
             {
                 _factory = Fluently.Configure()
-                    .Database(OracleDataClientConfiguration.Oracle10
+                    .Database(OracleManagedDataClientConfiguration.Oracle10
                         .Driver<NHibernate.Driver.OracleManagedDataClientDriver>()
-                        .ConnectionString("Data Source=localhost;User Id=S19943;Password=jagodicaBoobica")
+                        .ConnectionString("Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S19943;Password=jagodicaBoobica")
                         .ShowSql())
                     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Osiguranje.Mapiranja.KlijentMap>())
                     .BuildSessionFactory();

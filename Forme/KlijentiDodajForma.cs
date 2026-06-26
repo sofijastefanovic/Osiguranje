@@ -89,19 +89,58 @@ namespace Osiguranje.Forme
         private void btnDodatniPodaci_Click(object sender, EventArgs e)
         {
             if (rbFizicko.Checked)
-            { 
-                MessageBox.Show("Otvaranje forme za fizičko lice");
-                dodatniPodaciUneti = true;
+            {
+                FizickoLiceDodajForma forma = new FizickoLiceDodajForma();
+                forma.FormClosed += (s, args) =>
+                {
+                    if (forma.DodatniPodaciUneti)
+                    {
+                        jmbg = forma.Jmbg;
+                        datumRodjenja = forma.DatumRodjenja;
+                        zanimanje = forma.Zanimanje;
+                        dodatniPodaciUneti = true;
+                        MessageBox.Show("Dodatni podaci za fizičko lice su uneti!", "Info",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                };
+                forma.ShowDialog();
             }
             else if (rbPravno.Checked)
             {
-                MessageBox.Show("Otvaranje forme za pravno lice");
-                dodatniPodaciUneti = true;
+                PravnoLiceDodajForma forma = new PravnoLiceDodajForma();
+                forma.FormClosed += (s, args) =>
+                {
+                    if (forma.DodatniPodaciUneti)
+                    {
+                        pib = forma.Pib;
+                        maticniBroj = forma.MaticniBroj;
+                        delatnost = forma.Delatnost;
+                        kontaktOsobe = forma.KontaktOsobe;
+                        dodatniPodaciUneti = true;
+                        MessageBox.Show("Dodatni podaci za pravno lice su uneti!", "Info",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                };
+                forma.ShowDialog();
             }
             else if (rbJavnaInstitucija.Checked)
             {
-                MessageBox.Show("Otvaranje forme za javnu instituciju");
-                dodatniPodaciUneti = true;
+                JavnaInstitucijaDodajForma forma = new JavnaInstitucijaDodajForma();
+                forma.FormClosed += (s, args) =>
+                {
+                    if (forma.DodatniPodaciUneti)
+                    {
+                        pibJavna = forma.Pib;
+                        maticniBrojJavna = forma.MaticniBroj;
+                        delatnostJavna = forma.Delatnost;
+                        kontaktOsobeJavna = forma.KontaktOsobe;
+                        vrstaInstitucije = forma.VrstaInstitucije;
+                        dodatniPodaciUneti = true;
+                        MessageBox.Show("Dodatni podaci za javnu instituciju su uneti!", "Info",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                };
+                forma.ShowDialog();
             }
         }
 

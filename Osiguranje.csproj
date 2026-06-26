@@ -146,11 +146,23 @@
     <Compile Include="Entiteti\ZdravstvenoOsiguranje.cs" />
     <Compile Include="Entiteti\Zivotinja.cs" />
     <Compile Include="Entiteti\ZivotnoOsiguranje.cs" />
+    <Compile Include="Forme\FizickoLiceDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\FizickoLiceDodajForma.Designer.cs">
+      <DependentUpon>FizickoLiceDodajForma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\GlavnaForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forme\GlavnaForma.Designer.cs">
       <DependentUpon>GlavnaForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\JavnaInstitucijaDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\JavnaInstitucijaDodajForma.Designer.cs">
+      <DependentUpon>JavnaInstitucijaDodajForma.cs</DependentUpon>
     </Compile>
     <Compile Include="Forme\KlijentiDodajForma.cs">
       <SubType>Form</SubType>
@@ -175,6 +187,12 @@
     </Compile>
     <Compile Include="Forme\KlijentiForma.Designer.cs">
       <DependentUpon>KlijentiForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\PravnoLiceDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PravnoLiceDodajForma.Designer.cs">
+      <DependentUpon>PravnoLiceDodajForma.cs</DependentUpon>
     </Compile>
     <Compile Include="Mapiranja\AgentMap.cs" />
     <Compile Include="Mapiranja\AngazovanaOsobaMap.cs" />
@@ -212,8 +230,14 @@
     <Compile Include="Mapiranja\ZivotnoOsiguranjeMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forme\FizickoLiceDodajForma.resx">
+      <DependentUpon>FizickoLiceDodajForma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\GlavnaForma.resx">
       <DependentUpon>GlavnaForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\JavnaInstitucijaDodajForma.resx">
+      <DependentUpon>JavnaInstitucijaDodajForma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\KlijentiDodajForma.resx">
       <DependentUpon>KlijentiDodajForma.cs</DependentUpon>
@@ -226,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\KlijentiForma.resx">
       <DependentUpon>KlijentiForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PravnoLiceDodajForma.resx">
+      <DependentUpon>PravnoLiceDodajForma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

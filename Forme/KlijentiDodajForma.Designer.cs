@@ -37,9 +37,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtBroj = new System.Windows.Forms.TextBox();
             this.groupBoxTip = new System.Windows.Forms.GroupBox();
-            this.rbFizicko = new System.Windows.Forms.RadioButton();
-            this.rbPravno = new System.Windows.Forms.RadioButton();
             this.rbJavnaInstitucija = new System.Windows.Forms.RadioButton();
+            this.rbPravno = new System.Windows.Forms.RadioButton();
+            this.rbFizicko = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpDatumRegistracije = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
@@ -64,7 +64,7 @@
             // 
             // txtImePrezimeNaziv
             // 
-            this.txtImePrezimeNaziv.Location = new System.Drawing.Point(229, 33);
+            this.txtImePrezimeNaziv.Location = new System.Drawing.Point(276, 33);
             this.txtImePrezimeNaziv.Name = "txtImePrezimeNaziv";
             this.txtImePrezimeNaziv.Size = new System.Drawing.Size(251, 22);
             this.txtImePrezimeNaziv.TabIndex = 1;
@@ -87,7 +87,7 @@
             this.cmbStatus.Items.AddRange(new object[] {
             "Aktivan",
             "Neaktivan"});
-            this.cmbStatus.Location = new System.Drawing.Point(229, 70);
+            this.cmbStatus.Location = new System.Drawing.Point(276, 71);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(251, 24);
             this.cmbStatus.TabIndex = 3;
@@ -105,7 +105,7 @@
             // 
             // txtUlica
             // 
-            this.txtUlica.Location = new System.Drawing.Point(229, 113);
+            this.txtUlica.Location = new System.Drawing.Point(276, 114);
             this.txtUlica.Name = "txtUlica";
             this.txtUlica.Size = new System.Drawing.Size(251, 22);
             this.txtUlica.TabIndex = 5;
@@ -123,7 +123,7 @@
             // 
             // txtBroj
             // 
-            this.txtBroj.Location = new System.Drawing.Point(360, 153);
+            this.txtBroj.Location = new System.Drawing.Point(407, 154);
             this.txtBroj.Name = "txtBroj";
             this.txtBroj.Size = new System.Drawing.Size(120, 22);
             this.txtBroj.TabIndex = 7;
@@ -142,18 +142,17 @@
             this.groupBoxTip.TabStop = false;
             this.groupBoxTip.Text = "Tip klijenta";
             // 
-            // rbFizicko
+            // rbJavnaInstitucija
             // 
-            this.rbFizicko.AutoSize = true;
-            this.rbFizicko.Checked = true;
-            this.rbFizicko.Location = new System.Drawing.Point(20, 30);
-            this.rbFizicko.Name = "rbFizicko";
-            this.rbFizicko.Size = new System.Drawing.Size(140, 29);
-            this.rbFizicko.TabIndex = 0;
-            this.rbFizicko.TabStop = true;
-            this.rbFizicko.Text = "Fizičko lice";
-            this.rbFizicko.UseVisualStyleBackColor = true;
-            this.rbFizicko.CheckedChanged += new System.EventHandler(this.rbFizicko_CheckedChanged);
+            this.rbJavnaInstitucija.AutoSize = true;
+            this.rbJavnaInstitucija.Location = new System.Drawing.Point(20, 90);
+            this.rbJavnaInstitucija.Name = "rbJavnaInstitucija";
+            this.rbJavnaInstitucija.Size = new System.Drawing.Size(188, 29);
+            this.rbJavnaInstitucija.TabIndex = 2;
+            this.rbJavnaInstitucija.TabStop = true;
+            this.rbJavnaInstitucija.Text = "Javna institucija";
+            this.rbJavnaInstitucija.UseVisualStyleBackColor = true;
+            this.rbJavnaInstitucija.CheckedChanged += new System.EventHandler(this.rbJavnaInstitucija_CheckedChanged);
             // 
             // rbPravno
             // 
@@ -167,17 +166,18 @@
             this.rbPravno.UseVisualStyleBackColor = true;
             this.rbPravno.CheckedChanged += new System.EventHandler(this.rbPravno_CheckedChanged);
             // 
-            // rbJavnaInstitucija
+            // rbFizicko
             // 
-            this.rbJavnaInstitucija.AutoSize = true;
-            this.rbJavnaInstitucija.Location = new System.Drawing.Point(20, 90);
-            this.rbJavnaInstitucija.Name = "rbJavnaInstitucija";
-            this.rbJavnaInstitucija.Size = new System.Drawing.Size(188, 29);
-            this.rbJavnaInstitucija.TabIndex = 2;
-            this.rbJavnaInstitucija.TabStop = true;
-            this.rbJavnaInstitucija.Text = "Javna institucija";
-            this.rbJavnaInstitucija.UseVisualStyleBackColor = true;
-            this.rbJavnaInstitucija.CheckedChanged += new System.EventHandler(this.rbJavnaInstitucija_CheckedChanged);
+            this.rbFizicko.AutoSize = true;
+            this.rbFizicko.Checked = true;
+            this.rbFizicko.Location = new System.Drawing.Point(20, 30);
+            this.rbFizicko.Name = "rbFizicko";
+            this.rbFizicko.Size = new System.Drawing.Size(140, 29);
+            this.rbFizicko.TabIndex = 0;
+            this.rbFizicko.TabStop = true;
+            this.rbFizicko.Text = "Fizičko lice";
+            this.rbFizicko.UseVisualStyleBackColor = true;
+            this.rbFizicko.CheckedChanged += new System.EventHandler(this.rbFizicko_CheckedChanged);
             // 
             // label5
             // 
@@ -191,7 +191,7 @@
             // 
             // dtpDatumRegistracije
             // 
-            this.dtpDatumRegistracije.Location = new System.Drawing.Point(229, 193);
+            this.dtpDatumRegistracije.Location = new System.Drawing.Point(276, 193);
             this.dtpDatumRegistracije.Name = "dtpDatumRegistracije";
             this.dtpDatumRegistracije.Size = new System.Drawing.Size(251, 22);
             this.dtpDatumRegistracije.TabIndex = 10;
@@ -210,7 +210,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(229, 232);
+            this.txtEmail.Location = new System.Drawing.Point(277, 236);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(250, 22);
             this.txtEmail.TabIndex = 12;
@@ -228,7 +228,7 @@
             // 
             // txtTelefon
             // 
-            this.txtTelefon.Location = new System.Drawing.Point(229, 272);
+            this.txtTelefon.Location = new System.Drawing.Point(277, 276);
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(250, 22);
             this.txtTelefon.TabIndex = 14;
@@ -238,7 +238,7 @@
             // 
             this.btnDodatniPodaci.BackColor = System.Drawing.Color.CadetBlue;
             this.btnDodatniPodaci.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDodatniPodaci.Location = new System.Drawing.Point(105, 484);
+            this.btnDodatniPodaci.Location = new System.Drawing.Point(130, 486);
             this.btnDodatniPodaci.Name = "btnDodatniPodaci";
             this.btnDodatniPodaci.Size = new System.Drawing.Size(321, 49);
             this.btnDodatniPodaci.TabIndex = 15;
@@ -262,7 +262,7 @@
             // 
             this.btnOdustani.BackColor = System.Drawing.Color.CadetBlue;
             this.btnOdustani.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOdustani.Location = new System.Drawing.Point(306, 564);
+            this.btnOdustani.Location = new System.Drawing.Point(353, 564);
             this.btnOdustani.Name = "btnOdustani";
             this.btnOdustani.Size = new System.Drawing.Size(174, 56);
             this.btnOdustani.TabIndex = 17;
