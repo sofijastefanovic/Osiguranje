@@ -20,7 +20,7 @@ namespace Osiguranje.Forme
 
         private void btnKlijent_Click(object sender, EventArgs e)
         {
-            KlijentiForm otvoriKlijenta = new KlijentiForm();
+            KlijentForma otvoriKlijenta = new KlijentForma();
             otvoriKlijenta.ShowDialog();
         }
 
