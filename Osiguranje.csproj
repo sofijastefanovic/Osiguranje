@@ -146,6 +146,24 @@
     <Compile Include="Entiteti\ZdravstvenoOsiguranje.cs" />
     <Compile Include="Entiteti\Zivotinja.cs" />
     <Compile Include="Entiteti\ZivotnoOsiguranje.cs" />
+    <Compile Include="Forme\AgentDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\AgentDodajForma.Designer.cs">
+      <DependentUpon>AgentDodajForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\AngazovanaDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\AngazovanaDodajForma.Designer.cs">
+      <DependentUpon>AngazovanaDodajForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\AngazovanaForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\AngazovanaForma.Designer.cs">
+      <DependentUpon>AngazovanaForma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\FizickoLiceDodajForma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,11 +206,23 @@
     <Compile Include="Forme\KlijentiForma.Designer.cs">
       <DependentUpon>KlijentiForma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\PravnikDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PravnikDodajForma.Designer.cs">
+      <DependentUpon>PravnikDodajForma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\PravnoLiceDodajForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forme\PravnoLiceDodajForma.Designer.cs">
       <DependentUpon>PravnoLiceDodajForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\ProceniteljDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\ProceniteljDodajForma.Designer.cs">
+      <DependentUpon>ProceniteljDodajForma.cs</DependentUpon>
     </Compile>
     <Compile Include="Mapiranja\AgentMap.cs" />
     <Compile Include="Mapiranja\AngazovanaOsobaMap.cs" />
@@ -230,6 +260,15 @@
     <Compile Include="Mapiranja\ZivotnoOsiguranjeMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forme\AgentDodajForma.resx">
+      <DependentUpon>AgentDodajForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\AngazovanaDodajForma.resx">
+      <DependentUpon>AngazovanaDodajForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\AngazovanaForma.resx">
+      <DependentUpon>AngazovanaForma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\FizickoLiceDodajForma.resx">
       <DependentUpon>FizickoLiceDodajForma.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,8 +290,14 @@
     <EmbeddedResource Include="Forme\KlijentiForma.resx">
       <DependentUpon>KlijentiForma.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PravnikDodajForma.resx">
+      <DependentUpon>PravnikDodajForma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\PravnoLiceDodajForma.resx">
       <DependentUpon>PravnoLiceDodajForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\ProceniteljDodajForma.resx">
+      <DependentUpon>ProceniteljDodajForma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

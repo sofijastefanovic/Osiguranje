@@ -43,7 +43,8 @@ namespace Osiguranje.Forme
 
         private void btnAngazovana_Click(object sender, EventArgs e)
         {
-
+            AngazovanaForma otvoriAngayovanuOsobu = new AngazovanaForma();
+            otvoriAngayovanuOsobu.ShowDialog();
         }
         private void btnFaza_Click(object sender, EventArgs e)
         {
