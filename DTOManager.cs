@@ -281,5 +281,76 @@ namespace Osiguranje
         }
 
         #endregion
+
+        #region PredmetOsiguranja Metode
+
+        public static List<PredmetOsiguranjaPregled> vratiSvePredmete()
+        {
+            List<PredmetOsiguranjaPregled> predmeti = new List<PredmetOsiguranjaPregled>();
+
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var sviPredmeti = s.Query<PredmetOsiguranja>().ToList();
+
+                    foreach (var p in sviPredmeti)
+                    {
+                        predmeti.Add(new PredmetOsiguranjaPregled(
+                            p.Id,
+                            p.TipPredmeta
+                        ));
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri učitavanju predmeta: " + ec.Message);
+            }
+
+            return predmeti;
+        }
+
+        public static void dodajPredmet(PredmetOsiguranjaBasic p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    PredmetOsiguranja predmet = new PredmetOsiguranja();
+                    predmet.TipPredmeta = p.TipPredmeta;
+
+                    s.Save(predmet);
+                    s.Flush();
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri dodavanju predmeta: " + ec.Message);
+            }
+        }
+
+        public static void obrisiPredmet(int id)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    PredmetOsiguranja predmet = s.Get<PredmetOsiguranja>(id);
+
+                    if (predmet != null)
+                    {
+                        s.Delete(predmet);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri brisanju predmeta: " + ec.Message);
+            }
+        }
+
+        #endregion
     }
 }

@@ -188,6 +188,30 @@
     <Compile Include="Forme\KlijentiDodajForma.Designer.cs">
       <DependentUpon>KlijentiDodajForma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\LiceDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\LiceDodajForma.Designer.cs">
+      <DependentUpon>LiceDodajForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\NekretninaDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\NekretninaDodajForma.Designer.cs">
+      <DependentUpon>NekretninaDodajForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\OdgovornostDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\OdgovornostDodajForma.Designer.cs">
+      <DependentUpon>OdgovornostDodajForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\PokretnaImovinaDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PokretnaImovinaDodajForma.Designer.cs">
+      <DependentUpon>PokretnaImovinaDodajForma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\PolisaDodajForma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,11 +242,47 @@
     <Compile Include="Forme\PravnoLiceDodajForma.Designer.cs">
       <DependentUpon>PravnoLiceDodajForma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\PredmetOsiguranjaDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PredmetOsiguranjaDodajForma.Designer.cs">
+      <DependentUpon>PredmetOsiguranjaDodajForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\PredmetOsiguranjaForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PredmetOsiguranjaForma.Designer.cs">
+      <DependentUpon>PredmetOsiguranjaForma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\ProceniteljDodajForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forme\ProceniteljDodajForma.Designer.cs">
       <DependentUpon>ProceniteljDodajForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\PutovanjeDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PutovanjeDodajForma.Designer.cs">
+      <DependentUpon>PutovanjeDodajForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\UsevDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\UsevDodajForma.Designer.cs">
+      <DependentUpon>UsevDodajForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\VoziloDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\VoziloDodajForma.Designer.cs">
+      <DependentUpon>VoziloDodajForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\ZivotinjaDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\ZivotinjaDodajForma.Designer.cs">
+      <DependentUpon>ZivotinjaDodajForma.cs</DependentUpon>
     </Compile>
     <Compile Include="Mapiranja\AgentMap.cs" />
     <Compile Include="Mapiranja\AngazovanaOsobaMap.cs" />
@@ -281,6 +341,18 @@
     <EmbeddedResource Include="Forme\KlijentiDodajForma.resx">
       <DependentUpon>KlijentiDodajForma.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\LiceDodajForma.resx">
+      <DependentUpon>LiceDodajForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\NekretninaDodajForma.resx">
+      <DependentUpon>NekretninaDodajForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\OdgovornostDodajForma.resx">
+      <DependentUpon>OdgovornostDodajForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PokretnaImovinaDodajForma.resx">
+      <DependentUpon>PokretnaImovinaDodajForma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\PolisaDodajForma.resx">
       <DependentUpon>PolisaDodajForma.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,8 +368,26 @@
     <EmbeddedResource Include="Forme\PravnoLiceDodajForma.resx">
       <DependentUpon>PravnoLiceDodajForma.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PredmetOsiguranjaDodajForma.resx">
+      <DependentUpon>PredmetOsiguranjaDodajForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PredmetOsiguranjaForma.resx">
+      <DependentUpon>PredmetOsiguranjaForma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\ProceniteljDodajForma.resx">
       <DependentUpon>ProceniteljDodajForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PutovanjeDodajForma.resx">
+      <DependentUpon>PutovanjeDodajForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\UsevDodajForma.resx">
+      <DependentUpon>UsevDodajForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\VoziloDodajForma.resx">
+      <DependentUpon>VoziloDodajForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\ZivotinjaDodajForma.resx">
+      <DependentUpon>ZivotinjaDodajForma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
