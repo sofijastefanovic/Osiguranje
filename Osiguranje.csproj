@@ -158,6 +158,12 @@
     <Compile Include="Forme\KlijentiDodajForm.Designer.cs">
       <DependentUpon>KlijentiDodajForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\PolisaDodajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PolisaDodajForma.Designer.cs">
+      <DependentUpon>PolisaDodajForma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\PolisaForma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\KlijentiDodajForm.resx">
       <DependentUpon>KlijentiDodajForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PolisaDodajForma.resx">
+      <DependentUpon>PolisaDodajForma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\PolisaForma.resx">
       <DependentUpon>PolisaForma.cs</DependentUpon>

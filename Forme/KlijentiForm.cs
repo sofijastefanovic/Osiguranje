@@ -17,26 +17,58 @@ namespace Osiguranje.Forme
 
         public void popuniPodacima()
         {
-            listViewKlijenti.Items.Clear();
-
-            var klijenti = DTOManager.vratiSveKlijente();
-
-            foreach (var k in klijenti)
+            try
             {
-                ListViewItem item = new ListViewItem(new string[] {
-                    k.Id.ToString(),
-                    k.ImePrezimeNaziv,
-                    k.DatumRegistracije.ToShortDateString(),
-                    k.StatusKlijenata,
-                    k.Email,
-                    k.Telefon,
-                    k.Ulica,
-                    k.Broj
-                });
-                listViewKlijenti.Items.Add(item);
-            }
+                listViewKlijenti.Items.Clear();
 
-            listViewKlijenti.Refresh();
+                // Ovde NHibernate puca jer se ovde prvi put poziva DataLayer.GetSession() u pozadini
+                var klijenti = DTOManager.vratiSveKlijente();
+
+                foreach (var k in klijenti)
+                {
+                    ListViewItem item = new ListViewItem(new string[] {
+                k.Id.ToString(),
+                k.ImePrezimeNaziv,
+                k.DatumRegistracije.ToShortDateString(),
+                k.StatusKlijenata,
+                k.Email,
+                k.Telefon,
+                k.Ulica,
+                k.Broj
+            });
+                    listViewKlijenti.Items.Add(item);
+                }
+
+                listViewKlijenti.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+                foreach (ColumnHeader kolona in listViewKlijenti.Columns)
+                {
+                    int sirinaSadrzaja = kolona.Width;
+                    kolona.Width = -2;
+
+                    if (sirinaSadrzaja > kolona.Width)
+                    {
+                        kolona.Width = sirinaSadrzaja;
+                    }
+                }
+
+                listViewKlijenti.Refresh();
+            }
+            catch (Exception ex)
+            {
+                // Ova petlja ide do najdublje greške (krivca) u lancu
+                Exception stvarnaGreska = ex;
+                while (stvarnaGreska.InnerException != null)
+                {
+                    stvarnaGreska = stvarnaGreska.InnerException;
+                }
+
+                // Prikazuje prozor sa pravim razlogom pucanja
+                MessageBox.Show($"PRAVI UZROK GREŠKE:\n\n{stvarnaGreska.Message}",
+                                "NHibernate Detalji",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)

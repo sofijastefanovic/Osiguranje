@@ -47,7 +47,7 @@
             this.btnKlijent.TabIndex = 0;
             this.btnKlijent.Text = "KLIJENT";
             this.btnKlijent.UseVisualStyleBackColor = false;
-            this.btnKlijent.Click += new System.EventHandler(this.btnKlijent_Click); // Povezano!
+            this.btnKlijent.Click += new System.EventHandler(this.btnKlijent_Click);
             // 
             // btnPolisa
             // 
@@ -59,7 +59,7 @@
             this.btnPolisa.TabIndex = 1;
             this.btnPolisa.Text = "POLISA";
             this.btnPolisa.UseVisualStyleBackColor = false;
-            this.btnPolisa.Click += new System.EventHandler(this.btnPolisa_Click); // Povezano!
+            this.btnPolisa.Click += new System.EventHandler(this.btnPolisa_Click);
             // 
             // btnSteta
             // 
@@ -71,7 +71,7 @@
             this.btnSteta.TabIndex = 2;
             this.btnSteta.Text = "STETA";
             this.btnSteta.UseVisualStyleBackColor = false;
-            this.btnSteta.Click += new System.EventHandler(this.btnSteta_Click); // Povezano!
+            this.btnSteta.Click += new System.EventHandler(this.btnSteta_Click);
             // 
             // btnAngazovana
             // 
@@ -83,7 +83,7 @@
             this.btnAngazovana.TabIndex = 3;
             this.btnAngazovana.Text = "ANGAZOVANA OSOBA";
             this.btnAngazovana.UseVisualStyleBackColor = false;
-            this.btnAngazovana.Click += new System.EventHandler(this.btnAngazovana_Click); // Povezano!
+            this.btnAngazovana.Click += new System.EventHandler(this.btnAngazovana_Click);
             // 
             // btnProcena
             // 
@@ -95,7 +95,7 @@
             this.btnProcena.TabIndex = 4;
             this.btnProcena.Text = "PROCENA";
             this.btnProcena.UseVisualStyleBackColor = false;
-            this.btnProcena.Click += new System.EventHandler(this.btnProcena_Click); // Povezano!
+            this.btnProcena.Click += new System.EventHandler(this.btnProcena_Click);
             // 
             // btnFaza
             // 
@@ -107,7 +107,7 @@
             this.btnFaza.TabIndex = 5;
             this.btnFaza.Text = "FAZA OBRADE STETE";
             this.btnFaza.UseVisualStyleBackColor = false;
-            this.btnFaza.Click += new System.EventHandler(this.btnFaza_Click); // ISPRAVLJENO sa button6_Click na btnFaza_Click
+            this.btnFaza.Click += new System.EventHandler(this.btnFaza_Click);
             // 
             // btnPredmet
             // 
@@ -119,7 +119,7 @@
             this.btnPredmet.TabIndex = 6;
             this.btnPredmet.Text = "PREDMET OSIGURANJA";
             this.btnPredmet.UseVisualStyleBackColor = false;
-            this.btnPredmet.Click += new System.EventHandler(this.btnPredmet_Click); // Povezano!
+            this.btnPredmet.Click += new System.EventHandler(this.btnPredmet_Click);
             // 
             // GlavnaForma
             // 
@@ -136,6 +136,7 @@
             this.Controls.Add(this.btnKlijent);
             this.Name = "GlavnaForma";
             this.Text = "Osiguranje";
+            this.Load += new System.EventHandler(this.GlavnaForma_Load);
             this.ResumeLayout(false);
 
         }

@@ -20,13 +20,12 @@ namespace Osiguranje.Forme
 
         private void btnKlijent_Click(object sender, EventArgs e)
         {
-
+            KlijentiForm otvoriKlijenta = new KlijentiForm();
+            otvoriKlijenta.ShowDialog();
         }
 
         private void btnPolisa_Click(object sender, EventArgs e)
         {
-            KlijentiForm otvoriKlijenta = new KlijentiForm();
-            otvoriKlijenta.ShowDialog();
             PolisaForma otvoriPolisu = new PolisaForma();
             otvoriPolisu.ShowDialog();
             //doabr pul brissi ovoo
@@ -52,6 +51,11 @@ namespace Osiguranje.Forme
         }
 
         private void btnPredmet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GlavnaForma_Load(object sender, EventArgs e)
         {
 
         }

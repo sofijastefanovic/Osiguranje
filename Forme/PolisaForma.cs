@@ -71,6 +71,18 @@ namespace Osiguranje.Forme
                         listView1.Items.Add(red);
                     }
                 }
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+                foreach (ColumnHeader kolona in listView1.Columns)
+                {
+                    int sirinaSadrzaja = kolona.Width;
+                    kolona.Width = -2; 
+
+                    if (sirinaSadrzaja > kolona.Width)
+                    {
+                        kolona.Width = sirinaSadrzaja; 
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -101,7 +113,8 @@ namespace Osiguranje.Forme
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-
+            PolisaDodajForma otvoriDodaj = new PolisaDodajForma();
+            otvoriDodaj.ShowDialog();
         }
     }
 }
