@@ -146,6 +146,12 @@
     <Compile Include="Entiteti\ZdravstvenoOsiguranje.cs" />
     <Compile Include="Entiteti\Zivotinja.cs" />
     <Compile Include="Entiteti\ZivotnoOsiguranje.cs" />
+    <Compile Include="Forme\DodatnoPokriceForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\DodatnoPokriceForma.Designer.cs">
+      <DependentUpon>DodatnoPokriceForma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\GlavnaForma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     <Compile Include="Mapiranja\ZivotnoOsiguranjeMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forme\DodatnoPokriceForma.resx">
+      <DependentUpon>DodatnoPokriceForma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\GlavnaForma.resx">
       <DependentUpon>GlavnaForma.cs</DependentUpon>
     </EmbeddedResource>
