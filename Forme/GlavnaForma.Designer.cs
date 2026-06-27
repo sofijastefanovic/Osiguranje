@@ -43,7 +43,7 @@
             this.btnKlijent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKlijent.Location = new System.Drawing.Point(26, 12);
             this.btnKlijent.Name = "btnKlijent";
-            this.btnKlijent.Size = new System.Drawing.Size(276, 50);
+            this.btnKlijent.Size = new System.Drawing.Size(305, 62);
             this.btnKlijent.TabIndex = 0;
             this.btnKlijent.Text = "KLIJENT";
             this.btnKlijent.UseVisualStyleBackColor = false;
@@ -53,9 +53,9 @@
             // 
             this.btnPolisa.BackColor = System.Drawing.Color.CadetBlue;
             this.btnPolisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPolisa.Location = new System.Drawing.Point(26, 68);
+            this.btnPolisa.Location = new System.Drawing.Point(24, 80);
             this.btnPolisa.Name = "btnPolisa";
-            this.btnPolisa.Size = new System.Drawing.Size(276, 50);
+            this.btnPolisa.Size = new System.Drawing.Size(307, 62);
             this.btnPolisa.TabIndex = 1;
             this.btnPolisa.Text = "POLISA";
             this.btnPolisa.UseVisualStyleBackColor = false;
@@ -65,9 +65,9 @@
             // 
             this.btnSteta.BackColor = System.Drawing.Color.CadetBlue;
             this.btnSteta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSteta.Location = new System.Drawing.Point(26, 124);
+            this.btnSteta.Location = new System.Drawing.Point(26, 148);
             this.btnSteta.Name = "btnSteta";
-            this.btnSteta.Size = new System.Drawing.Size(276, 50);
+            this.btnSteta.Size = new System.Drawing.Size(305, 62);
             this.btnSteta.TabIndex = 2;
             this.btnSteta.Text = "STETA";
             this.btnSteta.UseVisualStyleBackColor = false;
@@ -77,9 +77,9 @@
             // 
             this.btnAngazovana.BackColor = System.Drawing.Color.CadetBlue;
             this.btnAngazovana.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAngazovana.Location = new System.Drawing.Point(26, 236);
+            this.btnAngazovana.Location = new System.Drawing.Point(24, 284);
             this.btnAngazovana.Name = "btnAngazovana";
-            this.btnAngazovana.Size = new System.Drawing.Size(276, 50);
+            this.btnAngazovana.Size = new System.Drawing.Size(307, 62);
             this.btnAngazovana.TabIndex = 3;
             this.btnAngazovana.Text = "ANGAZOVANA OSOBA";
             this.btnAngazovana.UseVisualStyleBackColor = false;
@@ -89,9 +89,9 @@
             // 
             this.btnProcena.BackColor = System.Drawing.Color.CadetBlue;
             this.btnProcena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProcena.Location = new System.Drawing.Point(26, 180);
+            this.btnProcena.Location = new System.Drawing.Point(26, 216);
             this.btnProcena.Name = "btnProcena";
-            this.btnProcena.Size = new System.Drawing.Size(276, 50);
+            this.btnProcena.Size = new System.Drawing.Size(305, 62);
             this.btnProcena.TabIndex = 4;
             this.btnProcena.Text = "PROCENA";
             this.btnProcena.UseVisualStyleBackColor = false;
@@ -101,9 +101,9 @@
             // 
             this.btnFaza.BackColor = System.Drawing.Color.CadetBlue;
             this.btnFaza.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFaza.Location = new System.Drawing.Point(26, 292);
+            this.btnFaza.Location = new System.Drawing.Point(26, 352);
             this.btnFaza.Name = "btnFaza";
-            this.btnFaza.Size = new System.Drawing.Size(276, 50);
+            this.btnFaza.Size = new System.Drawing.Size(305, 62);
             this.btnFaza.TabIndex = 5;
             this.btnFaza.Text = "FAZA OBRADE STETE";
             this.btnFaza.UseVisualStyleBackColor = false;
@@ -113,9 +113,9 @@
             // 
             this.btnPredmet.BackColor = System.Drawing.Color.CadetBlue;
             this.btnPredmet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPredmet.Location = new System.Drawing.Point(26, 348);
+            this.btnPredmet.Location = new System.Drawing.Point(24, 420);
             this.btnPredmet.Name = "btnPredmet";
-            this.btnPredmet.Size = new System.Drawing.Size(276, 50);
+            this.btnPredmet.Size = new System.Drawing.Size(307, 62);
             this.btnPredmet.TabIndex = 6;
             this.btnPredmet.Text = "PREDMET OSIGURANJA";
             this.btnPredmet.UseVisualStyleBackColor = false;
@@ -126,7 +126,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
-            this.ClientSize = new System.Drawing.Size(334, 416);
+            this.ClientSize = new System.Drawing.Size(360, 503);
             this.Controls.Add(this.btnPredmet);
             this.Controls.Add(this.btnFaza);
             this.Controls.Add(this.btnProcena);

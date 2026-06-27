@@ -200,5 +200,157 @@ namespace Osiguranje
             }
         }
         #endregion
+
+        #region AngazovanaOsoba Metode
+
+        public static List<AngazovanaOsobaPregled> vratiSveAngazovane()
+        {
+            List<AngazovanaOsobaPregled> osobe = new List<AngazovanaOsobaPregled>();
+
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var sveOsobe = s.Query<AngazovanaOsoba>().ToList();
+
+                    foreach (var o in sveOsobe)
+                    {
+                        osobe.Add(new AngazovanaOsobaPregled(
+                            o.Id,
+                            o.Ime,
+                            o.Prezime,
+                            o.Kontakt,
+                            o.DatumAngazovanja,
+                            o.Status,
+                            o.TipOsobe
+                        ));
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri učitavanju angažovanih osoba: " + ec.Message);
+            }
+
+            return osobe;
+        }
+
+        public static void dodajAngazovanu(AngazovanaOsobaBasic a)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    AngazovanaOsoba osoba = new AngazovanaOsoba();
+                    osoba.Ime = a.Ime;
+                    osoba.Prezime = a.Prezime;
+                    osoba.Kontakt = a.Kontakt;
+                    osoba.DatumAngazovanja = a.DatumAngazovanja;
+                    osoba.Status = a.Status;
+                    osoba.TipOsobe = a.TipOsobe;
+
+                    s.Save(osoba);
+                    s.Flush();
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri dodavanju angažovane osobe: " + ec.Message);
+            }
+        }
+
+        public static void obrisiAngazovanu(int id)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    AngazovanaOsoba osoba = s.Get<AngazovanaOsoba>(id);
+
+                    if (osoba != null)
+                    {
+                        s.Delete(osoba);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri brisanju angažovane osobe: " + ec.Message);
+            }
+        }
+
+        #endregion
+
+        #region PredmetOsiguranja Metode
+
+        public static List<PredmetOsiguranjaPregled> vratiSvePredmete()
+        {
+            List<PredmetOsiguranjaPregled> predmeti = new List<PredmetOsiguranjaPregled>();
+
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var sviPredmeti = s.Query<PredmetOsiguranja>().ToList();
+
+                    foreach (var p in sviPredmeti)
+                    {
+                        predmeti.Add(new PredmetOsiguranjaPregled(
+                            p.Id,
+                            p.TipPredmeta
+                        ));
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri učitavanju predmeta: " + ec.Message);
+            }
+
+            return predmeti;
+        }
+
+        public static void dodajPredmet(PredmetOsiguranjaBasic p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    PredmetOsiguranja predmet = new PredmetOsiguranja();
+                    predmet.TipPredmeta = p.TipPredmeta;
+
+                    s.Save(predmet);
+                    s.Flush();
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri dodavanju predmeta: " + ec.Message);
+            }
+        }
+
+        public static void obrisiPredmet(int id)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    PredmetOsiguranja predmet = s.Get<PredmetOsiguranja>(id);
+
+                    if (predmet != null)
+                    {
+                        s.Delete(predmet);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri brisanju predmeta: " + ec.Message);
+            }
+        }
+
+        #endregion
     }
 }
