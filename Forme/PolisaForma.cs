@@ -99,7 +99,72 @@ namespace Osiguranje.Forme
 
         }
 
-        private void btnIzmeni_Click(object sender, EventArgs e)
+        //private void btnIzmeni_Click(object sender, EventArgs e)
+        //{
+           // if (listView1.SelectedItems.Count == 0)
+            //{
+               // MessageBox.Show("Molimo vas da izaberete polisu iz liste koju želite da izmenite.", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+              //  return;
+            //}
+
+            //ListViewItem selektovaniRed = listView1.SelectedItems[0];
+           // Polisa izabranaPolisa = (Polisa)selektovaniRed.Tag;
+       // }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            PolisaDodajForma otvoriDodaj = new PolisaDodajForma();
+            otvoriDodaj.ShowDialog();
+        }
+
+        private void btnObrisiPolisu_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Molimo vas da izaberete polisu koju želite da obrišete.", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ListViewItem selektovaniRed = listView1.SelectedItems[0];
+            Polisa izabranaPolisa = (Polisa)selektovaniRed.Tag;
+
+            DialogResult potvrda = MessageBox.Show(
+                $"Da li ste sigurni da želite da obrišete polisu broj: {izabranaPolisa.BrojPolise}?",
+                "Potvrda brisanja",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (potvrda == DialogResult.Yes)
+            {
+                try
+                {
+                    using (ISession session = DataLayer.GetSession())
+                    {
+                        using (ITransaction tx = session.BeginTransaction())
+                        {
+                            session.Delete(izabranaPolisa);
+                            tx.Commit();
+                        }
+                    }
+
+                    MessageBox.Show("Polisa je uspešno obrisana.", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    UcitajPoliseUBazu();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Greška pri brisanju polise: {ex.Message}", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void PolisaForma_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnIstorijaIzmena_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count == 0)
             {
@@ -109,12 +174,31 @@ namespace Osiguranje.Forme
 
             ListViewItem selektovaniRed = listView1.SelectedItems[0];
             Polisa izabranaPolisa = (Polisa)selektovaniRed.Tag;
+
+            IstorijaIzmenaPolisaForma formaIzmena = new IstorijaIzmenaPolisaForma(izabranaPolisa);
+
+            if (formaIzmena.ShowDialog() == DialogResult.OK)
+            {
+                UcitajPoliseUBazu();
+            }
         }
 
-        private void btnDodaj_Click(object sender, EventArgs e)
+        private void btnDodatnoPokrice_Click(object sender, EventArgs e)
         {
-            PolisaDodajForma otvoriDodaj = new PolisaDodajForma();
-            otvoriDodaj.ShowDialog();
+            if (listView1.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Molimo vas da izaberete polisu iz liste kojoj želite da dodate dodatno pokriće.", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            ListViewItem selektovaniRed = listView1.SelectedItems[0];
+            Polisa izabranaPolisa = (Polisa)selektovaniRed.Tag;
+
+            DodatnoPokriceForma forma = new DodatnoPokriceForma(izabranaPolisa);
+
+            if (forma.ShowDialog() == DialogResult.OK)
+            {
+                UcitajPoliseUBazu();
+            }
         }
     }
 }

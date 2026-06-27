@@ -42,8 +42,6 @@
             this.txtValuta = new System.Windows.Forms.TextBox();
             this.txtNacinPlacanja = new System.Windows.Forms.TextBox();
             this.dtpDatumZakljucenja = new System.Windows.Forms.DateTimePicker();
-            this.btnDodatnoPokrice = new System.Windows.Forms.Button();
-            this.btnIstorijaIzmena = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbPutno = new System.Windows.Forms.RadioButton();
             this.rbPoljoprivredno = new System.Windows.Forms.RadioButton();
@@ -171,28 +169,6 @@
             this.dtpDatumZakljucenja.Size = new System.Drawing.Size(132, 30);
             this.dtpDatumZakljucenja.TabIndex = 15;
             // 
-            // btnDodatnoPokrice
-            // 
-            this.btnDodatnoPokrice.BackColor = System.Drawing.Color.CadetBlue;
-            this.btnDodatnoPokrice.Location = new System.Drawing.Point(426, 22);
-            this.btnDodatnoPokrice.Name = "btnDodatnoPokrice";
-            this.btnDodatnoPokrice.Size = new System.Drawing.Size(226, 66);
-            this.btnDodatnoPokrice.TabIndex = 16;
-            this.btnDodatnoPokrice.Text = "DODATNO POKRICE";
-            this.btnDodatnoPokrice.UseVisualStyleBackColor = false;
-            this.btnDodatnoPokrice.Click += new System.EventHandler(this.btnDodatnoPokrice_Click);
-            // 
-            // btnIstorijaIzmena
-            // 
-            this.btnIstorijaIzmena.BackColor = System.Drawing.Color.CadetBlue;
-            this.btnIstorijaIzmena.Location = new System.Drawing.Point(426, 121);
-            this.btnIstorijaIzmena.Name = "btnIstorijaIzmena";
-            this.btnIstorijaIzmena.Size = new System.Drawing.Size(226, 66);
-            this.btnIstorijaIzmena.TabIndex = 17;
-            this.btnIstorijaIzmena.Text = "ISTORIJA IZMENA POLISA";
-            this.btnIstorijaIzmena.UseVisualStyleBackColor = false;
-            this.btnIstorijaIzmena.Click += new System.EventHandler(this.btnIstorijaIzmena_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rbPutno);
@@ -203,9 +179,9 @@
             this.groupBox1.Controls.Add(this.rbAuto);
             this.groupBox1.Controls.Add(this.rbOdgovornosti);
             this.groupBox1.Controls.Add(this.rbSpecijalizovano);
-            this.groupBox1.Location = new System.Drawing.Point(701, 19);
+            this.groupBox1.Location = new System.Drawing.Point(360, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(332, 339);
+            this.groupBox1.Size = new System.Drawing.Size(332, 335);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tip polise";
@@ -309,9 +285,9 @@
             // btnSacuvaj
             // 
             this.btnSacuvaj.BackColor = System.Drawing.Color.CadetBlue;
-            this.btnSacuvaj.Location = new System.Drawing.Point(405, 261);
+            this.btnSacuvaj.Location = new System.Drawing.Point(379, 353);
             this.btnSacuvaj.Name = "btnSacuvaj";
-            this.btnSacuvaj.Size = new System.Drawing.Size(266, 121);
+            this.btnSacuvaj.Size = new System.Drawing.Size(266, 58);
             this.btnSacuvaj.TabIndex = 19;
             this.btnSacuvaj.Text = "SACUVAJ";
             this.btnSacuvaj.UseVisualStyleBackColor = false;
@@ -322,11 +298,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
-            this.ClientSize = new System.Drawing.Size(1054, 430);
+            this.ClientSize = new System.Drawing.Size(708, 430);
             this.Controls.Add(this.btnSacuvaj);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnIstorijaIzmena);
-            this.Controls.Add(this.btnDodatnoPokrice);
             this.Controls.Add(this.dtpDatumZakljucenja);
             this.Controls.Add(this.txtNacinPlacanja);
             this.Controls.Add(this.txtValuta);
@@ -345,6 +319,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "PolisaDodajForma";
             this.Text = "Dodaj polisu";
+            this.Load += new System.EventHandler(this.PolisaDodajForma_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -368,8 +343,6 @@
         private System.Windows.Forms.TextBox txtValuta;
         private System.Windows.Forms.TextBox txtNacinPlacanja;
         private System.Windows.Forms.DateTimePicker dtpDatumZakljucenja;
-        private System.Windows.Forms.Button btnDodatnoPokrice;
-        private System.Windows.Forms.Button btnIstorijaIzmena;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbSpecijalizovano;
         private System.Windows.Forms.RadioButton rbImovinsko;

@@ -28,17 +28,18 @@ namespace Osiguranje.Forme
         {
             PolisaForma otvoriPolisu = new PolisaForma();
             otvoriPolisu.ShowDialog();
-            //doabr pul brissi ovoo
         }
 
         private void btnSteta_Click(object sender, EventArgs e)
         {
-
+            StetaForma otvoriStetu = new StetaForma();
+            otvoriStetu.ShowDialog();
         }
 
         private void btnProcena_Click(object sender, EventArgs e)
         {
-
+            PolisaForma otvoriPolisu = new PolisaForma();
+            otvoriPolisu.ShowDialog();
         }
 
         private void btnAngazovana_Click(object sender, EventArgs e)
@@ -48,7 +49,8 @@ namespace Osiguranje.Forme
         }
         private void btnFaza_Click(object sender, EventArgs e)
         {
-
+            FazaObradeSteteForma otvoriFazu = new FazaObradeSteteForma();
+            otvoriFazu.ShowDialog();
         }
 
         private void btnPredmet_Click(object sender, EventArgs e)

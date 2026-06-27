@@ -18,8 +18,6 @@ namespace Osiguranje
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //ovo je da bude uvek isti font, jbg nece :(
-            //Application.SetDefaultFont(new Font("Microsoft Sans Serif", 12F, FontStyle.Bold));
             Application.Run(new GlavnaForma());
         }
     }

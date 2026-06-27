@@ -27,6 +27,9 @@ namespace Osiguranje.Mapiranja
 
             References(x => x.VlasnikPolise, "VlasnikPolise");
             References(x => x.Agent, "Agent");
+            //isto izmenaa
+            HasMany(x => x.IstorijaIzmena).KeyColumn("Polisa_Id").Cascade.AllDeleteOrphan().Inverse();
+            HasMany(x => x.DodatnaPokrica).KeyColumn("Polisa_Id").Cascade.AllDeleteOrphan().Inverse();
         }
     }
 }

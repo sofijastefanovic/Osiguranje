@@ -21,5 +21,8 @@ namespace Osiguranje.Entiteti
         // veze
         public virtual Klijent VlasnikPolise { get; set; }
         public virtual AngazovanaOsoba Agent { get; set; }
+        //izmena za nove veze, zab smo da dodamo
+        public virtual IList<IstorijaIzmenaPolisa> IstorijaIzmena { get; set; } = new List<IstorijaIzmenaPolisa>();
+        public virtual IList<DodatnoPokrice> DodatnaPokrica { get; set; } = new List<DodatnoPokrice>();
     }
 }

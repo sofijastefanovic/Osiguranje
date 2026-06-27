@@ -18,7 +18,6 @@ namespace Osiguranje.Forme
             InitializeComponent();
         }
 
-        // Zajednička metoda za otvaranje formi sa dodatnim atributima
         private void OtvoriFormuZaAtribute(string tipOsiguranja)
         {
             //FormaDodatniAtributi formaAtributi = new FormaDodatniAtributi(tipOsiguranja);
@@ -31,17 +30,14 @@ namespace Osiguranje.Forme
         {
             try
             {
-                // 1. Osnovna provera unosa
                 if (string.IsNullOrEmpty(txtBrojPolise.Text) || string.IsNullOrEmpty(txtOsnovnaPremija.Text))
                 {
                     MessageBox.Show("Molimo popunite broj polise i osnovnu premiju pre čuvanja!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // 2. Kreiranje objekta (Prilagodi ako koristiš PolisaBasic umesto Polisa entiteta u DTOManager-u)
                 Polisa novaPolisa = new Polisa();
 
-                // 3. Kupimo vrednosti iz svih kontrola sa forme
                 novaPolisa.BrojPolise = int.Parse(txtBrojPolise.Text);
                 novaPolisa.DatumZakljucenja = dtpDatumZakljucenja.Value;
                 novaPolisa.PeriodVazenja = int.Parse(txtPeriodVazenja.Text);
@@ -50,12 +46,9 @@ namespace Osiguranje.Forme
                 novaPolisa.Valuta = txtValuta.Text;
                 novaPolisa.NacinPlacanja = txtNacinPlacanja.Text;
 
-                // 4. Kupimo podatak koji je radio button selektovan
                 novaPolisa.TipPolise = ProcitajSelektovaniTip();
                 novaPolisa.TipOsiguranja = ProcitajSelektovaniTip();
-
-                // 5. Poziv DTOManager-a za upis u bazu
-                // DTOManager.dodajPolisu(novaPolisa); 
+ 
 
                 MessageBox.Show("Polisa je uspešno prikupljena i prosleđena bazi!", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
@@ -84,25 +77,27 @@ namespace Osiguranje.Forme
 
         #region Događaji za Radio Button-e (Usklađeni sa dizajnerom)
 
-        // Povezano sa rbAuto u dizajneru
         private void rbAuto_CheckedChanged(object sender, EventArgs e)
         {
             if (rbAuto.Checked)
             {
-                OtvoriFormuZaAtribute("auto osiguranje");
+                using (AutoOsiguranjeForma otvoriAuto = new AutoOsiguranjeForma())
+                {
+                    otvoriAuto.ShowDialog();
+                }
             }
         }
-
-        // Povezano sa rbZivotno u dizajneru
         private void rbZivotno_CheckedChanged(object sender, EventArgs e)
         {
             if (rbZivotno.Checked)
             {
-                OtvoriFormuZaAtribute("zivotno osiguranje");
+                using (ZivotnoOsiguranjeForma otvoriZivotno = new ZivotnoOsiguranjeForma())
+                {
+                    otvoriZivotno.ShowDialog();
+                }
             }
         }
 
-        // Povezano sa rbZdravstveno u dizajneru
         private void rbZdravstveno_CheckedChanged(object sender, EventArgs e)
         {
             if (rbZdravstveno.Checked)
@@ -110,8 +105,6 @@ namespace Osiguranje.Forme
                 OtvoriFormuZaAtribute("zdravstveno osiguranje");
             }
         }
-
-        // Povezano sa rbImovinsko kroz metodu radioButton6_CheckedChanged u dizajneru
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
             if (rbImovinsko.Checked)
@@ -120,7 +113,6 @@ namespace Osiguranje.Forme
             }
         }
 
-        // Povezano sa rbPoljoprivredno u dizajneru
         private void rbPoljoprivredno_CheckedChanged(object sender, EventArgs e)
         {
             if (rbPoljoprivredno.Checked)
@@ -128,8 +120,6 @@ namespace Osiguranje.Forme
                 OtvoriFormuZaAtribute("poljoprivredno osiguranje");
             }
         }
-
-        // Ostali radio button-i koji samo menjaju stanje (ne otvaraju podforme)
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             // Specijalizovano osiguranje
@@ -149,17 +139,14 @@ namespace Osiguranje.Forme
 
         #region Klik na dugmad za Otvaranje Podformi
 
-        private void btnIstorijaIzmena_Click(object sender, EventArgs e)
-        {
-            //IstorijaIzmenaForma forma = new IstorijaIzmenaForma();
-            //forma.ShowDialog();
-        }
+       // private void btnIstorijaIzmena_Click(object sender, EventArgs e)
+        //{
+       // }
 
-        private void btnDodatnoPokrice_Click(object sender, EventArgs e)
-        {
-            //DodatnoPokriceForma forma = new DodatnoPokriceForma();
-            //forma.ShowDialog();
-        }
+        //private void btnDodatnoPokrice_Click(object sender, EventArgs e)
+        //{
+            
+        //}
 
         #endregion
 
@@ -179,17 +166,14 @@ namespace Osiguranje.Forme
         {
             try
             {
-                // 1. Provera da li su uneta obavezna polja
                 if (string.IsNullOrEmpty(txtBrojPolise.Text) || string.IsNullOrEmpty(txtOsnovnaPremija.Text))
                 {
                     MessageBox.Show("Molimo popunite broj polise i osnovnu premiju pre čuvanja!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // 2. Kreiranje objekta (Prilagodi u PolisaBasic ako ti DTOManager traži Basic klasu)
                 Polisa novaPolisa = new Polisa();
 
-                // 3. Čitanje vrednosti iz svih TextBox-eva i kalendara sa forme
                 novaPolisa.BrojPolise = int.Parse(txtBrojPolise.Text);
                 novaPolisa.DatumZakljucenja = dtpDatumZakljucenja.Value;
                 novaPolisa.PeriodVazenja = int.Parse(txtPeriodVazenja.Text);
@@ -198,22 +182,23 @@ namespace Osiguranje.Forme
                 novaPolisa.Valuta = txtValuta.Text;
                 novaPolisa.NacinPlacanja = txtNacinPlacanja.Text;
 
-                // 4. Čitanje koji je Radio Button čekiran u grupi
                 novaPolisa.TipPolise = ProcitajSelektovaniTip();
                 novaPolisa.TipOsiguranja = ProcitajSelektovaniTip();
 
-                // 5. Otkomentariši ovu liniju ispod kada budeš spremna da upišeš podatke u Oracle bazu:
-                // DTOManager.dodajPolisu(novaPolisa); 
 
                 MessageBox.Show("Polisa je uspešno sačuvana u bazi podataka!", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Zatvaramo formu nakon uspešnog čuvanja
                 this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Greška pri čitanju podataka: {ex.Message}\nProverite da li ste ispravno uneli brojeve u polja za Broj polise, Period i Premiju.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void PolisaDodajForma_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
