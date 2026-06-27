@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using FluentNHibernate.Mapping;
 using Osiguranje.Entiteti;
 
@@ -13,23 +12,30 @@ namespace Osiguranje.Mapiranja
     {
         public PolisaMap()
         {
-            Id(x => x.BrojPolise, "BrojPolise").GeneratedBy.TriggerIdentity();
+            // 1. OBAVEZNO DOSLOVNO IME TABELE VELIKIM SLOVIMA (Da izbegnemo ORA-00942)
+            Table("POLISA");
 
-            Map(x => x.PeriodVazenja);
-            Map(x => x.TipOsiguranja);
-            Map(x => x.Status);
-            Map(x => x.OsnovnaPremija);
-            Map(x => x.Valuta);
-            Map(x => x.NacinPlacanja);
-            Map(x => x.TipPolise);
+            // 2. Primarni ključ (Proveri da li je u bazi BROJ_POLISE ili samo ID)
+            Id(x => x.BrojPolise, "BROJ_POLISE").GeneratedBy.TriggerIdentity();
 
-            Map(x => x.DatumZakljucenja, "DatumZakljucenja").Not.Nullable();
+            // 3. Mapiranje običnih kolona (Usklađeno sa velikim slovima iz Oracle-a)
+            Map(x => x.PeriodVazenja, "PERIOD_VAZENJA");
+            Map(x => x.TipOsiguranja, "TIP_OSIGURANJA");
+            Map(x => x.Status, "STATUS");
+            Map(x => x.OsnovnaPremija, "OSNOVNA_PREMIJA");
+            Map(x => x.Valuta, "VALUTA");
+            Map(x => x.NacinPlacanja, "NACIN_PLACANJA");
+            Map(x => x.TipPolise, "TIP_POLISE");
+            Map(x => x.DatumZakljucenja, "DATUM_ZAKLJUCENJA").Not.Nullable();
 
-            References(x => x.VlasnikPolise, "VlasnikPolise");
-            References(x => x.Agent, "Agent");
-            //isto izmenaa
-            HasMany(x => x.IstorijaIzmena).KeyColumn("Polisa_Id").Cascade.AllDeleteOrphan().Inverse();
-            HasMany(x => x.DodatnaPokrica).KeyColumn("Polisa_Id").Cascade.AllDeleteOrphan().Inverse();
+            // 4. Strani ključevi (Veze) - moraju da gađaju tačna imena kolona u bazi
+            // Ako ti se u bazi kolone zovu ID_VLASNIKA i ID_AGENTA, promeni ovde navodnike!
+            References(x => x.VlasnikPolise, "ID_VLASNIKA");
+            References(x => x.Agent, "ID_AGENTA");
+
+            // 5. Kolekcije / Liste (Gledajući tvoj SQL upit za podklase, ključ spajanja treba da bude BROJ_POLISE)
+            HasMany(x => x.IstorijaIzmena).KeyColumn("BROJ_POLISE").Cascade.AllDeleteOrphan().Inverse();
+            HasMany(x => x.DodatnaPokrica).KeyColumn("BROJ_POLISE").Cascade.AllDeleteOrphan().Inverse();
         }
     }
 }

@@ -10,23 +10,33 @@ namespace Osiguranje.Mapiranja
 {
     internal class KlijentMap : ClassMap<Klijent>
     {
-        public KlijentMap() {
-            Id(x => x.Id, "Id").GeneratedBy.TriggerIdentity();
+        public KlijentMap()
+        {
+            // 1. OBAVEZNO DOSLOVNO IME TABELE VELIKIM SLOVIMA (Rješava ORA-00942)
+            Table("KLIJENT");
 
-            Map(x => x.ImePrezimeNaziv);
-            Map(x => x.StatusKlijenata);
-            Map(x => x.Ulica);
-            Map(x => x.Broj);
+            // 2. Primarni ključ (Usklađen sa Oracle velikim slovima)
+            Id(x => x.Id, "ID").GeneratedBy.TriggerIdentity();
 
-            Map(x => x.DatumRegistracije, "DatumRegistracije").Not.Nullable();
+            // 3. Mapiranje običnih kolona (Sve velikim slovima pod navodnicima)
+            Map(x => x.ImePrezimeNaziv, "IME_PREZIME_NAZIV");
+            Map(x => x.StatusKlijenata, "STATUS_KLIJENATA");
+            Map(x => x.Ulica, "ULICA");
+            Map(x => x.Broj, "BROJ");
+            Map(x => x.DatumRegistracije, "DATUM_REGISTRACIJE").Not.Nullable();
 
-            HasMany(x => x.Emailovi).Table("KlijentEmail").KeyColumn("Id")  
-                .Element("emailovi").Cascade.All();
+            // 4. Mapiranje kolekcije Emailova (Ime pomoćne tabele i kolone VELIKIM SLOVIMA)
+            HasMany(x => x.Emailovi)
+                .Table("KLIJENT_EMAIL")
+                .KeyColumn("ID_KLIJENTA") // Strani ključ u pomoćnoj tabeli koji pokazuje na Klijenta
+                .Element("EMAIL")        // Naziv kolone u kojoj se zapravo nalazi string emaila
+                .Cascade.All();
 
+            // 5. Mapiranje kolekcije Telefona (Ime pomoćne tabele i kolone VELIKIM SLOVIMA)
             HasMany(x => x.Telefoni)
-                .Table("KlijentTelefon")     
-                .KeyColumn("Id")      
-                .Element("Telefoni")     
+                .Table("KLIJENT_TELEFON")
+                .KeyColumn("ID_KLIJENTA") // Strani ključ u pomoćnoj tabeli koji pokazuje na Klijenta
+                .Element("TELEFON")       // Naziv kolone u kojoj se zapravo nalazi string telefona
                 .Cascade.All();
         }
     }

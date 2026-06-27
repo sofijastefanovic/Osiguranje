@@ -8,10 +8,20 @@ using System.Threading.Tasks;
 
 namespace Osiguranje.Mapiranja
 {
-    internal class PutovanjeMap : ClassMap<Putovanje>
+    // PROMENJENO: Sa ClassMap prebačeno na SubclassMap jer nasleđuje PredmetOsiguranja
+    internal class PutovanjeMap : SubclassMap<Putovanje>
     {
-        public PutovanjeMap() {
-            Map(x => x.PeriodPutovanja);
+        public PutovanjeMap()
+        {
+            // 1. Naziv tabele u Oracle-u za putovanja
+            Table("PUTOVANJE");
+
+            // 2. Ključ preko kojeg se spaja sa tabelom PREDMET_OSIGURANJA 
+            // Proveri da li ti se u bazi ova kolona zove tačno ID ili ID_PREDMETA
+            KeyColumn("ID");
+
+            // 3. Mapiranje specifičnih kolona za Putovanje
+            Map(x => x.PeriodPutovanja, "PERIOD_PUTOVANJA");
         }
     }
 }

@@ -8,11 +8,21 @@ using System.Threading.Tasks;
 
 namespace Osiguranje.Mapiranja
 {
-    internal class ZivotnoOsiguranjeMap : ClassMap<ZivotnoOsiguranje>
+    // PROMENJENO: Sa ClassMap prebačeno na SubclassMap jer nasleđuje klasu Polisa
+    internal class ZivotnoOsiguranjeMap : SubclassMap<ZivotnoOsiguranje>
     {
-        public ZivotnoOsiguranjeMap() {
-            Map(x => x.TipIsplate);
-            Map(x => x.SumaOsiguranja);
+        public ZivotnoOsiguranjeMap()
+        {
+            // 1. Naziv tabele u Oracle-u za životna osiguranja
+            Table("ZIVOTNO_OSIGURANJE");
+
+            // 2. Ključ preko kojeg se spaja sa krovnom tabelom POLISA
+            // Proveri da li se ova kolona u tvojoj bazi zove tačno ID ili možda BROJ_POLISE
+            KeyColumn("ID");
+
+            // 3. Mapiranje specifičnih kolona za Životno Osiguranje
+            Map(x => x.TipIsplate, "TIP_ISPLATE");
+            Map(x => x.SumaOsiguranja, "SUMA_OSIGURANJA");
         }
     }
 }
