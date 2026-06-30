@@ -14,7 +14,7 @@ namespace Osiguranje.Mapiranja
         public PredmetOsiguranjaMap()
         {
             Table("PREDMET_OSIGURANJA");
-            Id(x => x.Id, "id").GeneratedBy.SequenceIdentity();  // "id" umesto "Id"!
+            Id(x => x.Id, "id").GeneratedBy.Increment();  
             Map(x => x.TipPredmeta, "tip_predmeta");
         }
     }

@@ -14,7 +14,7 @@ namespace Osiguranje.Mapiranja
         public PravnoLiceMap()
         {
             Table("PRAVNO_LICE");
-            KeyColumn("id_klijent");  // PROMENA: id_klijent umesto ID_KLIJENTA
+            KeyColumn("id_klijent");
 
             Map(x => x.Pib, "pib");
             Map(x => x.MaticniBroj, "maticni_broj");

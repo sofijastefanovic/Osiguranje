@@ -14,7 +14,7 @@ namespace Osiguranje.Mapiranja
         public FizickoLiceMap()
         {
             Table("FIZICKO_LICE");
-            KeyColumn("id_klijent");  // PROMENA: id_klijent umesto ID_KLIJENTA
+            KeyColumn("id_klijent");
 
             Map(x => x.Jmbg, "jmbg");
             Map(x => x.DatumRodjenja, "datum_rodjenja").Not.Nullable();

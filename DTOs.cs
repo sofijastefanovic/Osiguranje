@@ -556,4 +556,50 @@ namespace Osiguranje
         public int IdPolise { get; set; }
         public int IdPredmetaOsiguranja { get; set; }
     }
+
+    // ==================== LICE BASIC ====================
+    public class LiceBasic : PredmetOsiguranjaBasic
+    {
+        public string Jmbg { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public DateTime DatumRodjenja { get; set; }
+    }
+
+    // ==================== POKRETNA IMOVINA BASIC ====================
+    public class PokretnaImovinaBasic : PredmetOsiguranjaBasic
+    {
+        public string SerijskiBroj { get; set; }
+        public string Naziv { get; set; }
+        public string Opis { get; set; }
+        public decimal ProcenjenaVrednost { get; set; }
+    }
+
+    // ==================== USEV BASIC ====================
+    public class UsevBasic : PredmetOsiguranjaBasic
+    {
+        public string Vrsta { get; set; }
+        public string Lokacija { get; set; }
+        public decimal ProcenjenaVrednost { get; set; }
+    }
+
+    // ==================== ZIVOTINJA BASIC ====================
+    public class ZivotinjaBasic : PredmetOsiguranjaBasic
+    {
+        public string Vrsta { get; set; }
+        public string Lokacija { get; set; }
+        public decimal ProcenjenaVrednost { get; set; }
+    }
+
+    // ==================== ODGOVORNOST BASIC ====================
+    public class OdgovornostBasic : PredmetOsiguranjaBasic
+    {
+        public string Opis { get; set; }
+    }
+
+    // ==================== PUTOVANJE BASIC ====================
+    public class PutovanjeBasic : PredmetOsiguranjaBasic
+    {
+        public int PeriodPutovanja { get; set; }
+    }
 }

@@ -15,7 +15,7 @@ namespace Osiguranje.Mapiranja
         {
             Table("ANGAZOVANA_OSOBA");
 
-            Id(x => x.Id, "id").GeneratedBy.SequenceIdentity();
+            Id(x => x.Id, "id").GeneratedBy.Increment();
 
             Map(x => x.Ime, "ime");
             Map(x => x.Prezime, "prezime");

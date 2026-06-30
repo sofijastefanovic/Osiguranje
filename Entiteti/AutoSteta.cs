@@ -10,5 +10,7 @@ namespace Osiguranje.Entiteti
     {
         public virtual string ZapisnikPolicije { get; set; }
         public virtual string Servis { get; set; }
+
+        public virtual Steta Steta { get; set; }
     }
 }

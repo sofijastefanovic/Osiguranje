@@ -19,6 +19,7 @@ namespace Osiguranje.Mapiranja
             Map(x => x.Licensa, "licensa");
             Map(x => x.Provizija, "provizija");
             Map(x => x.TipAgenta, "tip_agenta");
+
         }
     }
 }

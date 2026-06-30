@@ -155,7 +155,36 @@ namespace Osiguranje.Forme
 
             try
             {
-                KlijentBasic klijent = new KlijentBasic();
+
+                KlijentBasic klijent = null;  
+
+                if (rbFizicko.Checked)
+                {
+                    FizickoLiceBasic fizicko = new FizickoLiceBasic();
+                    fizicko.Jmbg = jmbg;
+                    fizicko.DatumRodjenja = datumRodjenja;
+                    fizicko.Zanimanje = zanimanje;
+                    klijent = fizicko;
+                }
+                else if (rbPravno.Checked)
+                {
+                    PravnoLiceBasic pravno = new PravnoLiceBasic();
+                    pravno.Pib = pib;
+                    pravno.MaticniBroj = maticniBroj;
+                    pravno.Delatnost = delatnost;
+                    pravno.KontaktOsobe = kontaktOsobe;
+                    klijent = pravno;
+                }
+                else if (rbJavnaInstitucija.Checked)
+                {
+                    JavnaInstitucijaBasic javna = new JavnaInstitucijaBasic();
+                    javna.Pib = pibJavna;
+                    javna.MaticniBroj = maticniBrojJavna;
+                    javna.Delatnost = delatnostJavna;
+                    javna.KontaktOsobe = kontaktOsobeJavna;
+                    javna.VrstaInstitucije = vrstaInstitucije;
+                    klijent = javna;
+                }
 
                 klijent.ImePrezimeNaziv = txtImePrezimeNaziv.Text;
                 klijent.DatumRegistracije = dtpDatumRegistracije.Value;

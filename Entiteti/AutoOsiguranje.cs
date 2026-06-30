@@ -10,5 +10,7 @@ namespace Osiguranje.Entiteti
     {
         public virtual int BonusMalusKlasa { get; set; }
         public virtual string TeritorijalnoVazenje { get; set; }
+
+        public virtual Polisa Polisa { get; set; }
     }
 }

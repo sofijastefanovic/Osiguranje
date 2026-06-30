@@ -12,7 +12,7 @@ namespace Osiguranje.Mapiranja
     {
         public IstorijaIzmenaPolisaMap()
         {
-            Id(x => x.Id, "Id").GeneratedBy.SequenceIdentity();
+            Id(x => x.Id, "Id").GeneratedBy.Increment();
 
             Map(x => x.TipIzmene, "Tip_izmene");
             Map(x => x.DatumIzmene, "Datum_izmene");

@@ -14,7 +14,7 @@ namespace Osiguranje.Mapiranja
         {
             Table("POLISA");
 
-            Id(x => x.BrojPolise, "broj_polise").GeneratedBy.SequenceIdentity();
+            Id(x => x.BrojPolise, "broj_polise").GeneratedBy.Increment();
 
             Map(x => x.DatumZakljucenja, "datum_zakljucenja").Not.Nullable();
             Map(x => x.PeriodVazenja, "period_vazenja");

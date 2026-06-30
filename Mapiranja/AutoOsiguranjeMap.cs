@@ -18,6 +18,7 @@ namespace Osiguranje.Mapiranja
 
             Map(x => x.BonusMalusKlasa, "bonus_malus_klasa");
             Map(x => x.TeritorijalnoVazenje, "teritorijalno_vazenje");
+
         }
     }
 }

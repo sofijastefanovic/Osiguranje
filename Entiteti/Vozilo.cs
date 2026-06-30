@@ -15,5 +15,7 @@ namespace Osiguranje.Entiteti
         public virtual string ImeVlasnika { get; set; }
         public virtual string PrezimeVlasnika { get; set; }
         public virtual Polisa AutoPolisa { get; set; }
+
+        public virtual PredmetOsiguranja PredmetOsiguranja { get; set; }
     }
 }

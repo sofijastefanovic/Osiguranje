@@ -16,7 +16,7 @@ namespace Osiguranje.Mapiranja
             Table("DODATNO_POKRICE");
 
             // redni_broj je identity u bazi, zato koristimo Identity()
-            Id(x => x.RedniBroj, "redni_broj").GeneratedBy.SequenceIdentity();
+            Id(x => x.RedniBroj, "redni_broj").GeneratedBy.Increment();
 
             Map(x => x.Naziv, "naziv");
             Map(x => x.Opis, "opis");

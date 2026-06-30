@@ -15,7 +15,7 @@ namespace Osiguranje.Mapiranja
         {
             Table("STETA");
 
-            Id(x => x.Id, "id").GeneratedBy.SequenceIdentity();
+            Id(x => x.Id, "id").GeneratedBy.Increment();
 
             Map(x => x.DatumPrijave, "datum_prijave").Not.Nullable();
             Map(x => x.DatumNastanka, "datum_nastanka").Not.Nullable();

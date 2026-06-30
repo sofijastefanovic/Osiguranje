@@ -15,7 +15,7 @@ namespace Osiguranje.Mapiranja
         {
             Table("FAZA_OBRADE_STETE");
 
-            Id(x => x.RedniBrojFaze, "redni_broj_faze").GeneratedBy.SequenceIdentity();
+            Id(x => x.RedniBrojFaze, "redni_broj_faze").GeneratedBy.Increment();
 
             Map(x => x.DatumPocetka, "datum_pocetka").Not.Nullable();
             Map(x => x.DatumZavrsetka, "datum_zavrsetka").Not.Nullable();

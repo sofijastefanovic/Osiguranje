@@ -15,7 +15,7 @@ namespace Osiguranje.Mapiranja
         {
             Table("KLIJENT");
 
-            Id(x => x.Id, "id").GeneratedBy.SequenceIdentity();
+            Id(x => x.Id, "id").GeneratedBy.Increment();
 
             Map(x => x.ImePrezimeNaziv, "ime_prezime_naziv");
             Map(x => x.DatumRegistracije, "datum_registracije").Not.Nullable();
@@ -23,7 +23,6 @@ namespace Osiguranje.Mapiranja
             Map(x => x.Ulica, "ulica");
             Map(x => x.Broj, "broj");
 
-            // PROMENA: Tačna imena tabela
             HasMany(x => x.Emailovi)
                 .Table("EMAIL_KLIJENT")
                 .KeyColumn("id_klijent")

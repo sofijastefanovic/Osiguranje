@@ -23,7 +23,6 @@ namespace Osiguranje.Mapiranja
             Map(x => x.ImeVlasnika, "ime_vlasnika");
             Map(x => x.PrezimeVlasnika, "prezime_vlasnika");
 
-            References(x => x.AutoPolisa, "broj_polise_auto");
         }
     }
 }
