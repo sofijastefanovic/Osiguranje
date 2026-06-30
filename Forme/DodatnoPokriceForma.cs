@@ -58,7 +58,7 @@ namespace Osiguranje.Forme
 
         private void btnSacuvaj_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNaziv.Text))
+            /*if (string.IsNullOrEmpty(txtNaziv.Text))
             {
                 MessageBox.Show("Molimo vas da unesete naziv dodatnog pokrića.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -82,6 +82,58 @@ namespace Osiguranje.Forme
                     Opis = txtOpis.Text,
                     Limit = limit,
                     Fransiza = fransiza,
+                    DodatnaPremija = dodatnaPremija
+                };
+
+                using (ISession session = DataLayer.GetSession())
+                {
+                    using (ITransaction tx = session.BeginTransaction())
+                    {
+                        session.Save(novoPokrice);
+                        tx.Commit();
+                    }
+                }
+
+                MessageBox.Show("Dodatno pokriće je uspešno sačuvano za izabranu polisu!", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Greška pri čuvanju dodatnog pokrića: {ex.Message}", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }*/
+            if (string.IsNullOrEmpty(txtNaziv.Text))
+            {
+                MessageBox.Show("Molimo vas da unesete naziv dodatnog pokrića.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!decimal.TryParse(txtLimit.Text, out decimal limit))
+            {
+                MessageBox.Show("Polje Limit mora biti ispravan broj!", "Greška u unosu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!decimal.TryParse(txtDodatnaPremija.Text, out decimal dodatnaPremija))
+            {
+                MessageBox.Show("Polje Dodatna premija mora biti ispravan broj!", "Greška u unosu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Fransiza je string - samo uzimamo tekst
+            string fransiza = txtFransiza.Text;
+
+            try
+            {
+                DodatnoPokrice novoPokrice = new DodatnoPokrice
+                {
+                    Polisa = this._polisa,
+                    RedniBroj = this._sledeciRedniBroj,
+                    Naziv = txtNaziv.Text,
+                    Opis = txtOpis.Text,
+                    Limit = limit,
+                    Fransiza = fransiza,  // string
                     DodatnaPremija = dodatnaPremija
                 };
 

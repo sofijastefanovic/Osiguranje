@@ -6,12 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class LekarKonsultantMap : SubclassMap<LekarKonsultant>
     {
-        public LekarKonsultantMap() {
-            KeyColumn("Id");
+        public LekarKonsultantMap()
+        {
+            Table("LEKAR_KONSULTANT");
+            KeyColumn("id_angazovane");
         }
     }
 }

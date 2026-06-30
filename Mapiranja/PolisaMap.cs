@@ -12,30 +12,24 @@ namespace Osiguranje.Mapiranja
     {
         public PolisaMap()
         {
-            // 1. OBAVEZNO DOSLOVNO IME TABELE VELIKIM SLOVIMA (Da izbegnemo ORA-00942)
             Table("POLISA");
 
-            // 2. Primarni ključ (Proveri da li je u bazi BROJ_POLISE ili samo ID)
-            Id(x => x.BrojPolise, "BROJ_POLISE").GeneratedBy.TriggerIdentity();
+            Id(x => x.BrojPolise, "broj_polise").GeneratedBy.SequenceIdentity();
 
-            // 3. Mapiranje običnih kolona (Usklađeno sa velikim slovima iz Oracle-a)
-            Map(x => x.PeriodVazenja, "PERIOD_VAZENJA");
-            Map(x => x.TipOsiguranja, "TIP_OSIGURANJA");
-            Map(x => x.Status, "STATUS");
-            Map(x => x.OsnovnaPremija, "OSNOVNA_PREMIJA");
-            Map(x => x.Valuta, "VALUTA");
-            Map(x => x.NacinPlacanja, "NACIN_PLACANJA");
-            Map(x => x.TipPolise, "TIP_POLISE");
-            Map(x => x.DatumZakljucenja, "DATUM_ZAKLJUCENJA").Not.Nullable();
+            Map(x => x.DatumZakljucenja, "datum_zakljucenja").Not.Nullable();
+            Map(x => x.PeriodVazenja, "period_vazenja");
+            Map(x => x.TipOsiguranja, "tip_osiguranja");
+            Map(x => x.Status, "status");
+            Map(x => x.OsnovnaPremija, "osnovna_premija");
+            Map(x => x.Valuta, "valuta");
+            Map(x => x.NacinPlacanja, "nacin_placanja");
+            Map(x => x.TipPolise, "tip_polise");
 
-            // 4. Strani ključevi (Veze) - moraju da gađaju tačna imena kolona u bazi
-            // Ako ti se u bazi kolone zovu ID_VLASNIKA i ID_AGENTA, promeni ovde navodnike!
-            References(x => x.VlasnikPolise, "ID_VLASNIKA");
-            References(x => x.Agent, "ID_AGENTA");
+            References(x => x.VlasnikPolise, "id_vlasnika_polise");
+            References(x => x.Agent, "id_angazovane_osobe");
 
-            // 5. Kolekcije / Liste (Gledajući tvoj SQL upit za podklase, ključ spajanja treba da bude BROJ_POLISE)
-            HasMany(x => x.IstorijaIzmena).KeyColumn("BROJ_POLISE").Cascade.AllDeleteOrphan().Inverse();
-            HasMany(x => x.DodatnaPokrica).KeyColumn("BROJ_POLISE").Cascade.AllDeleteOrphan().Inverse();
+            HasMany(x => x.IstorijaIzmena).KeyColumn("broj_polise").Cascade.AllDeleteOrphan().Inverse();
+            HasMany(x => x.DodatnaPokrica).KeyColumn("broj_polise_dodatno").Cascade.AllDeleteOrphan().Inverse();
         }
     }
 }

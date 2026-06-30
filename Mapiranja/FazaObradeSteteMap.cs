@@ -6,22 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class FazaObradeSteteMap : ClassMap<FazaObradeStete>
     {
         public FazaObradeSteteMap()
         {
-            Id(x => x.RedniBrojFaze, "RedniBrojFaze").GeneratedBy.TriggerIdentity();
+            Table("FAZA_OBRADE_STETE");
 
-            Map(x => x.DatumPocetka, "DatumPocetka").Not.Nullable();
-            Map(x => x.DatumZavrsetka, "DatumZavrsetka").Not.Nullable();
+            Id(x => x.RedniBrojFaze, "redni_broj_faze").GeneratedBy.SequenceIdentity();
 
-            Map(x => x.OdgovornoLice);
-            Map(x => x.Odluka);
-            Map(x => x.PotrebnaDokumenta);
+            Map(x => x.DatumPocetka, "datum_pocetka").Not.Nullable();
+            Map(x => x.DatumZavrsetka, "datum_zavrsetka").Not.Nullable();
+            Map(x => x.OdgovornoLice, "odgovorno_lice");
+            Map(x => x.Odluka, "odluka");
+            Map(x => x.PotrebnaDokumenta, "potrebna_dokumenta");
 
-            References(x => x.Steta, "Steta");
+            References(x => x.Steta, "id_stete");
         }
     }
 }

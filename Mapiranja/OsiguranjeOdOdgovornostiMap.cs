@@ -6,12 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class OsiguranjeOdOdgovornostiMap : SubclassMap<OsiguranjeOdOdgovornosti>
     {
-        public OsiguranjeOdOdgovornostiMap() {
-            KeyColumn("BrojPolise");
+        public OsiguranjeOdOdgovornostiMap()
+        {
+            Table("OSIGURANJE_OD_ODGOVORNOSTI");
+            KeyColumn("broj_polise");
         }
     }
 }

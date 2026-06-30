@@ -6,18 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class LiceMap : SubclassMap<Lice>
     {
-        public LiceMap() {
-            KeyColumn("Id");
+        public LiceMap()
+        {
+            Table("LICE");
+            KeyColumn("id_predmeta");
 
-            Map(x => x.Jmbg);
-            Map(x => x.Ime);
-            Map(x => x.Prezime);
-
-            Map(x => x.DatumRodjenja, "DatumRodjenja").Not.Nullable();
+            Map(x => x.Jmbg, "jmbg");
+            Map(x => x.Ime, "ime");
+            Map(x => x.Prezime, "prezime");
+            Map(x => x.DatumRodjenja, "datum_rodjenja").Not.Nullable();
         }
     }
 }

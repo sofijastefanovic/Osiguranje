@@ -6,20 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class VoziloMap : SubclassMap<Vozilo>
     {
-        public VoziloMap() {
-            KeyColumn("Id");
-            Map(x => x.Registracija);
-            Map(x => x.Marka);
-            Map(x => x.Model);
-            Map(x => x.GodinaProizvodnje);
-            Map(x => x.ImeVlasnika);
-            Map(x => x.PrezimeVlasnika);
+        public VoziloMap()
+        {
+            Table("VOZILO");
+            KeyColumn("id_predmeta");
 
-            References(x => x.AutoPolisa, "AutoPolisa");
+            Map(x => x.Registracija, "registracija");
+            Map(x => x.Marka, "marka");
+            Map(x => x.Model, "model");
+            Map(x => x.GodinaProizvodnje, "godina_proizvodnje");
+            Map(x => x.ImeVlasnika, "ime_vlasnika");
+            Map(x => x.PrezimeVlasnika, "prezime_vlasnika");
+
+            References(x => x.AutoPolisa, "broj_polise_auto");
         }
     }
 }

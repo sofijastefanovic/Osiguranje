@@ -6,12 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class PutnoOsiguranjeMap : SubclassMap<PutnoOsiguranje>
     {
-        public PutnoOsiguranjeMap() {
-            KeyColumn("BrojPolise");
+        public PutnoOsiguranjeMap()
+        {
+            Table("PUTNO_OSIGURANJE");
+            KeyColumn("broj_polise");
         }
     }
 }

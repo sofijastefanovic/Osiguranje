@@ -6,21 +6,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class AngazovanaOsobaMap : ClassMap<AngazovanaOsoba>
     {
         public AngazovanaOsobaMap()
         {
-            Id(x => x.Id, "Id").GeneratedBy.TriggerIdentity();
+            Table("ANGAZOVANA_OSOBA");
 
-            Map(x => x.Ime);
-            Map(x => x.Prezime);
-            Map(x => x.Kontakt);
-            Map(x => x.Status);
-            Map(x => x.TipOsobe);
+            Id(x => x.Id, "id").GeneratedBy.SequenceIdentity();
 
-            Map(x => x.DatumAngazovanja, "DatumAngazovanja").Not.Nullable();
+            Map(x => x.Ime, "ime");
+            Map(x => x.Prezime, "prezime");
+            Map(x => x.Kontakt, "kontakt");
+            Map(x => x.DatumAngazovanja, "datum_angazovanja").Not.Nullable();
+            Map(x => x.Status, "status");
+            Map(x => x.TipOsobe, "tip_osobe");
         }
     }
 }

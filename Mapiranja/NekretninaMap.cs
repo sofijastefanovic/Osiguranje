@@ -6,17 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class NekretninaMap : SubclassMap<Nekretnina>
     {
-        public NekretninaMap() {
-            KeyColumn("Id");
-            Map(x => x.Adresa);
-            Map(x => x.TipObjekta);
-            Map(x => x.GodinaIzgradnje);
-            Map(x => x.Povrsina);
-            Map(x => x.ProcenjenaVrednost);
+        public NekretninaMap()
+        {
+            Table("NEKRETNINA");
+            KeyColumn("id_predmeta");
+
+            Map(x => x.Adresa, "adresa");
+            Map(x => x.TipObjekta, "tip_objekta");
+            Map(x => x.GodinaIzgradnje, "godina_izgradnje");
+            Map(x => x.Povrsina, "povrsina");
+            Map(x => x.ProcenjenaVrednost, "procenjena_vrednost");
         }
     }
 }

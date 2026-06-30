@@ -16,6 +16,7 @@ namespace Osiguranje.Forme
         {
             InitializeComponent();
             PostaviListView();
+            popuniPodacima();
         }
 
         private void PostaviListView()
@@ -31,7 +32,6 @@ namespace Osiguranje.Forme
 
         private void PredmetForma_Load(object sender, EventArgs e)
         {
-            popuniPodacima();
         }
 
         public void popuniPodacima()

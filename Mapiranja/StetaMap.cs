@@ -6,28 +6,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class StetaMap : ClassMap<Steta>
     {
-        public StetaMap() {
-            Id(x => x.Id, "Id").GeneratedBy.TriggerIdentity();
+        public StetaMap()
+        {
+            Table("STETA");
 
-            Map(x => x.DatumPrijave, "DatumPrijave").Not.Nullable();
-            Map(x => x.DatumNastanka, "DatumNastanka").Not.Nullable();
+            Id(x => x.Id, "id").GeneratedBy.SequenceIdentity();
 
-            Map(x => x.VrstaStete);
-            Map(x => x.OpisDogadjaja);
-            Map(x => x.Lokacija);
-            Map(x => x.StatusPostupka);
-            Map(x => x.ProcenjeniIznos);
+            Map(x => x.DatumPrijave, "datum_prijave").Not.Nullable();
+            Map(x => x.DatumNastanka, "datum_nastanka").Not.Nullable();
+            Map(x => x.VrstaStete, "vrsta_stete");
+            Map(x => x.OpisDogadjaja, "opis_dogadjaja");
+            Map(x => x.Lokacija, "lokacija");
+            Map(x => x.StatusPostupka, "status_postupka");
+            Map(x => x.ProcenjeniIznos, "procenjeni_iznos");
 
-            References(x => x.OstecenoLice, "OstecenoLice");
-            References(x => x.Polisa, "Polisa");
-            References(x => x.PredmetOsiguranja, "PredmetOsiguranja");
-
-
-
+            References(x => x.OstecenoLice, "id_ostecenog_lica");
+            References(x => x.Polisa, "id_polise");
+            References(x => x.PredmetOsiguranja, "id_predmet_osiguranja");
         }
     }
 }

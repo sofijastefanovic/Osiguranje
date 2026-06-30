@@ -4,7 +4,6 @@ using Osiguranje.Entiteti;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ServiceModel.Channels;
 using ISession = NHibernate.ISession;
 
 namespace Osiguranje
@@ -111,10 +110,8 @@ namespace Osiguranje
 
                     foreach (var p in svePolise)
                     {
-                        // POPRAVKA: Pošto konstruktor PolisaPregled traži stringove za Vlasnika i Agenta,
-                        // izvlačimo tekstualne podatke iz povezanih objekata (proveravamo i da li nisu null)
                         string vlasnikPrikaz = p.VlasnikPolise != null ? p.VlasnikPolise.ImePrezimeNaziv : "";
-                        string agentPrikaz = p.Agent != null ? p.Agent.Id.ToString() : ""; // Ili p.Agent.Ime/ImePrezime ako postoji to polje
+                        string agentPrikaz = p.Agent != null ? p.Agent.Id.ToString() : "";
 
                         polise.Add(new PolisaPregled(
                             p.BrojPolise,
@@ -126,8 +123,8 @@ namespace Osiguranje
                             p.Valuta,
                             p.NacinPlacanja,
                             p.TipPolise,
-                            vlasnikPrikaz,         // Prosleđen string umesto celog objekta Klijent
-                            agentPrikaz            // Prosleđen string umesto celog objekta AngazovanaOsoba
+                            vlasnikPrikaz,
+                            agentPrikaz
                         ));
                     }
                 }
@@ -158,7 +155,6 @@ namespace Osiguranje
                     polisa.NacinPlacanja = p.NacinPlacanja;
                     polisa.TipPolise = p.TipPolise;
 
-                    // POPRAVKA: Preko ID-jeva iz PolisaBasic učitavamo cele entitete iz baze i vežemo ih za polisu
                     if (p.IdVlasnikaPolise > 0)
                     {
                         polisa.VlasnikPolise = s.Load<Klijent>(p.IdVlasnikaPolise);
@@ -348,6 +344,124 @@ namespace Osiguranje
             catch (Exception ec)
             {
                 System.Windows.Forms.MessageBox.Show("Greška pri brisanju predmeta: " + ec.Message);
+            }
+        }
+
+        #endregion
+
+        #region FazaObradeStete Metode
+
+        public static List<FazaObradeStete> vratiSveFaze()
+        {
+            List<FazaObradeStete> faze = new List<FazaObradeStete>();
+
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    faze = s.Query<FazaObradeStete>().ToList();
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri učitavanju faza: " + ec.Message);
+            }
+
+            return faze;
+        }
+
+        public static void dodajFazu(FazaObradeStete faza)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    s.Save(faza);
+                    s.Flush();
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri dodavanju faze: " + ec.Message);
+            }
+        }
+
+        public static void obrisiFazu(int redniBrojFaze)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    FazaObradeStete faza = s.Get<FazaObradeStete>(redniBrojFaze);
+                    if (faza != null)
+                    {
+                        s.Delete(faza);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri brisanju faze: " + ec.Message);
+            }
+        }
+
+        #endregion
+
+        #region Steta Metode
+
+        public static List<Steta> vratiSveStete()
+        {
+            List<Steta> stete = new List<Steta>();
+
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    stete = s.Query<Steta>().ToList();
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri učitavanju šteta: " + ec.Message);
+            }
+
+            return stete;
+        }
+
+        public static void dodajStetu(Steta steta)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    s.Save(steta);
+                    s.Flush();
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri dodavanju štete: " + ec.Message);
+            }
+        }
+
+        public static void obrisiStetu(int id)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    Steta steta = s.Get<Steta>(id);
+                    if (steta != null)
+                    {
+                        s.Delete(steta);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show("Greška pri brisanju štete: " + ec.Message);
             }
         }
 

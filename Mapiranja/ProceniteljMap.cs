@@ -6,14 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class ProceniteljMap : SubclassMap<Procenitelj>
     {
-        public ProceniteljMap() {
-            KeyColumn("Id");
-            Map(x => x.Licensa);
-            Map(x => x.TipProcenitelja);
+        public ProceniteljMap()
+        {
+            Table("PROCENITELJ");
+            KeyColumn("id_angazovane");
+
+            Map(x => x.Licensa, "licensa");
+            Map(x => x.TipProcenitelja, "tip_procenitelja");
         }
     }
 }

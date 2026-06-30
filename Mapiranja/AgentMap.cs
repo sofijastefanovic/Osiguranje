@@ -6,15 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class AgentMap : SubclassMap<Agent>
     {
-        public AgentMap() {
-            KeyColumn("Id");
-            Map(x => x.Licensa);
-            Map(x => x.Provizija);
-            Map(x => x.TipAgenta);
+        public AgentMap()
+        {
+            Table("AGENT");
+            KeyColumn("id_angazovane");
+
+            Map(x => x.Licensa, "licensa");
+            Map(x => x.Provizija, "provizija");
+            Map(x => x.TipAgenta, "tip_agenta");
         }
     }
 }

@@ -6,15 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class UsevMap : SubclassMap<Usev>
     {
-        public UsevMap() {
-            KeyColumn("Id");
-            Map(x => x.Vrsta);
-            Map(x => x.Lokacija);
-            Map(x => x.ProcenjenaVrednost);
+        public UsevMap()
+        {
+            Table("USEV");
+            KeyColumn("id_predmeta");
+
+            Map(x => x.Vrsta, "vrsta");
+            Map(x => x.Lokacija, "lokacija");
+            Map(x => x.ProcenjenaVrednost, "procenjena_vrednost");
         }
     }
 }

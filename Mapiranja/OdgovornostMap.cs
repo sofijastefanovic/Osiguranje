@@ -6,15 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class OdgovornostMap : SubclassMap<Odgovornost>
     {
-        public OdgovornostMap() {
-            KeyColumn("Id");
+        public OdgovornostMap()
+        {
+            Table("ODGOVORNOST");
+            KeyColumn("id_predmeta");
 
-            Map(x => x.Opis);
-
+            Map(x => x.Opis, "opis");
         }
     }
 }

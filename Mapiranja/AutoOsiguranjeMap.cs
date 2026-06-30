@@ -6,14 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class AutoOsiguranjeMap : SubclassMap<AutoOsiguranje>
     {
-        public AutoOsiguranjeMap() {
-            KeyColumn("Id");
-            Map(x => x.BonusMalusKlasa);
-            Map(x => x.TeritorijalnoVazenje);
+        public AutoOsiguranjeMap()
+        {
+            Table("AUTO_OSIGURANJE");
+            KeyColumn("broj_polise");
+
+            Map(x => x.BonusMalusKlasa, "bonus_malus_klasa");
+            Map(x => x.TeritorijalnoVazenje, "teritorijalno_vazenje");
         }
     }
 }

@@ -6,21 +6,26 @@ using System.Threading.Tasks;
 using FluentNHibernate.Mapping;
 using Osiguranje.Entiteti;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class DodatnoPokriceMap : ClassMap<DodatnoPokrice>
     {
         public DodatnoPokriceMap()
         {
-            CompositeId()
-                .KeyReference(x => x.Polisa, "Polisa_Id")
-                .KeyProperty(x => x.RedniBroj, "Redni_broj");
+            Table("DODATNO_POKRICE");
 
-            Map(x => x.Naziv, "Naziv");
-            Map(x => x.Opis, "Opis");
-            Map(x => x.Limit, "Limit");
-            Map(x => x.Fransiza, "Fransiza");
-            Map(x => x.DodatnaPremija, "Dodatna_premija");
+            // redni_broj je identity u bazi, zato koristimo Identity()
+            Id(x => x.RedniBroj, "redni_broj").GeneratedBy.SequenceIdentity();
+
+            Map(x => x.Naziv, "naziv");
+            Map(x => x.Opis, "opis");
+            Map(x => x.Limit, "limit_iznos");
+            Map(x => x.Fransiza, "fransiza");
+            Map(x => x.DodatnaPremija, "dodatna_premija");
+
+            // Veza ka Polisi
+            References(x => x.Polisa, "broj_polise_dodatno");
         }
     }
 }

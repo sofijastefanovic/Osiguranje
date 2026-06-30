@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Osiguranje.Entiteti
+/*namespace Osiguranje.Entiteti
 {
     public class DodatnoPokrice
     {
@@ -28,5 +28,19 @@ namespace Osiguranje.Entiteti
         {
             return (Polisa?.BrojPolise ?? 0).GetHashCode() ^ RedniBroj.GetHashCode();
         }
+    }
+}*/
+
+namespace Osiguranje.Entiteti
+{
+    public class DodatnoPokrice
+    {
+        public virtual int RedniBroj { get; set; }  // Ovo sada postaje ID (identity)
+        public virtual Polisa Polisa { get; set; }
+        public virtual string Naziv { get; set; }
+        public virtual string Opis { get; set; }
+        public virtual decimal Limit { get; set; }
+        public virtual string Fransiza { get; set; }
+        public virtual decimal DodatnaPremija { get; set; }
     }
 }

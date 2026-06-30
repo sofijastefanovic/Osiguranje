@@ -6,13 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Osiguranje.Mapiranja
 {
     internal class ImovinskoOsiguranjeMap : SubclassMap<ImovinskoOsiguranje>
     {
         public ImovinskoOsiguranjeMap()
         {
-            KeyColumn("BrojPolise");
+            Table("IMOVINSKO_OSIGURANJE");
+            KeyColumn("broj_polise");
         }
     }
 }

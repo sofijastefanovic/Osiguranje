@@ -43,47 +43,30 @@ namespace Osiguranje.Forme
 
             try
             {
-                using (ISession session = DataLayer.GetSession())
+                var sveFaze = DTOManager.vratiSveFaze();
+
+                foreach (FazaObradeStete f in sveFaze)
                 {
-                    IList<FazaObradeStete> sveFaze = session.QueryOver<FazaObradeStete>().List();
+                    ListViewItem red = new ListViewItem(f.RedniBrojFaze.ToString());
 
-                    foreach (FazaObradeStete f in sveFaze)
-                    {
-                        ListViewItem red = new ListViewItem(f.RedniBrojFaze.ToString());
+                    red.SubItems.Add(f.DatumPocetka.ToString("dd.MM.yyyy"));
+                    red.SubItems.Add(f.DatumZavrsetka != DateTime.MinValue ? f.DatumZavrsetka.ToString("dd.MM.yyyy") : "U toku");
+                    red.SubItems.Add(f.OdgovornoLice ?? "Nije dodeljeno");
+                    red.SubItems.Add(f.Odluka ?? "Nema odluke");
+                    red.SubItems.Add(f.PotrebnaDokumenta ?? "Nema");
 
-                        red.SubItems.Add(f.DatumPocetka.ToString("dd.MM.yyyy"));
+                    string stetaInfo = f.Steta != null ? f.Steta.Id.ToString() : "N/A";
+                    red.SubItems.Add(stetaInfo);
 
-                        red.SubItems.Add(f.DatumZavrsetka != DateTime.MinValue ? f.DatumZavrsetka.ToString("dd.MM.yyyy") : "U toku");
-
-                        red.SubItems.Add(f.OdgovornoLice ?? "Nije dodeljeno");
-                        red.SubItems.Add(f.Odluka ?? "Nema odluke");
-                        red.SubItems.Add(f.PotrebnaDokumenta ?? "Nema");
-
-                        string stetaInfo = f.Steta != null ? f.Steta.Id.ToString() : "N/A";
-                        red.SubItems.Add(stetaInfo);
-
-                        red.Tag = f;
-
-                        listView1.Items.Add(red);
-                    }
+                    red.Tag = f;
+                    listView1.Items.Add(red);
                 }
 
                 listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-
-                foreach (ColumnHeader kolona in listView1.Columns)
-                {
-                    int sirinaSadrzaja = kolona.Width;
-                    kolona.Width = -2;
-
-                    if (sirinaSadrzaja > kolona.Width)
-                    {
-                        kolona.Width = sirinaSadrzaja;
-                    }
-                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Greška pri komunikaciji sa bazom: {ex.Message}", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Greška pri učitavanju faza: {ex.Message}", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
