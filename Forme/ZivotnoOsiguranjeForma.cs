@@ -13,6 +13,9 @@ namespace Osiguranje.Forme
 {
     public partial class ZivotnoOsiguranjeForma : Form
     {
+        public string TipIsplate { get; private set; }
+        public decimal SumaOsiguranja { get; private set; }
+
         public ZivotnoOsiguranje KreiranoZivotnoOsiguranje { get; private set; }
 
         public ZivotnoOsiguranjeForma()
@@ -45,6 +48,10 @@ namespace Osiguranje.Forme
                 MessageBox.Show("Polje za tip isplate ne sme biti prazno.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            TipIsplate = txtTipIsplate.Text;
+            SumaOsiguranja = suma;
+
             KreiranoZivotnoOsiguranje = new ZivotnoOsiguranje
             {
                 SumaOsiguranja = suma,

@@ -12,14 +12,16 @@ namespace Osiguranje.Mapiranja
     {
         public IstorijaIzmenaPolisaMap()
         {
-            Id(x => x.Id, "Id").GeneratedBy.Increment();
+            Table("ISTORIJA_IZMENA_POLISE"); 
 
-            Map(x => x.TipIzmene, "Tip_izmene");
-            Map(x => x.DatumIzmene, "Datum_izmene");
-            Map(x => x.StaraVrednost, "Stara_vrednost");
-            Map(x => x.NovaVrednost, "Nova_vrednost");
+            Id(x => x.Id, "id").GeneratedBy.Increment();  
 
-            References(x => x.Polisa, "Polisa_Id").Not.Nullable();
+            Map(x => x.TipIzmene, "tip_izmene");
+            Map(x => x.DatumIzmene, "datum_izmene");
+            Map(x => x.StaraVrednost, "stara_vrednost");
+            Map(x => x.NovaVrednost, "nova_vrednost");
+
+            References(x => x.Polisa, "broj_polise").Not.Nullable(); 
         }
     }
 }

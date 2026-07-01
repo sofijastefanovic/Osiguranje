@@ -52,13 +52,17 @@
             this.rbOdgovornosti = new System.Windows.Forms.RadioButton();
             this.rbSpecijalizovano = new System.Windows.Forms.RadioButton();
             this.btnSacuvaj = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbVlasnik = new System.Windows.Forms.ComboBox();
+            this.cmbAgent = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(82, 22);
+            this.label1.Location = new System.Drawing.Point(82, 107);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 25);
             this.label1.TabIndex = 0;
@@ -68,7 +72,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 77);
+            this.label2.Location = new System.Drawing.Point(7, 148);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(195, 25);
             this.label2.TabIndex = 1;
@@ -77,7 +81,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 142);
+            this.label3.Location = new System.Drawing.Point(40, 194);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(162, 25);
             this.label3.TabIndex = 2;
@@ -86,7 +90,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(121, 208);
+            this.label5.Location = new System.Drawing.Point(121, 244);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 25);
             this.label5.TabIndex = 4;
@@ -95,7 +99,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 274);
+            this.label6.Location = new System.Drawing.Point(20, 290);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(182, 25);
             this.label6.TabIndex = 5;
@@ -104,7 +108,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(121, 333);
+            this.label7.Location = new System.Drawing.Point(121, 338);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 25);
             this.label7.TabIndex = 6;
@@ -121,35 +125,35 @@
             // 
             // txtBrojPolise
             // 
-            this.txtBrojPolise.Location = new System.Drawing.Point(208, 22);
+            this.txtBrojPolise.Location = new System.Drawing.Point(208, 102);
             this.txtBrojPolise.Name = "txtBrojPolise";
             this.txtBrojPolise.Size = new System.Drawing.Size(132, 30);
             this.txtBrojPolise.TabIndex = 8;
             // 
             // txtPeriodVazenja
             // 
-            this.txtPeriodVazenja.Location = new System.Drawing.Point(208, 142);
+            this.txtPeriodVazenja.Location = new System.Drawing.Point(208, 194);
             this.txtPeriodVazenja.Name = "txtPeriodVazenja";
             this.txtPeriodVazenja.Size = new System.Drawing.Size(132, 30);
             this.txtPeriodVazenja.TabIndex = 9;
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(208, 208);
+            this.txtStatus.Location = new System.Drawing.Point(208, 241);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(132, 30);
             this.txtStatus.TabIndex = 11;
             // 
             // txtOsnovnaPremija
             // 
-            this.txtOsnovnaPremija.Location = new System.Drawing.Point(208, 269);
+            this.txtOsnovnaPremija.Location = new System.Drawing.Point(208, 287);
             this.txtOsnovnaPremija.Name = "txtOsnovnaPremija";
             this.txtOsnovnaPremija.Size = new System.Drawing.Size(132, 30);
             this.txtOsnovnaPremija.TabIndex = 12;
             // 
             // txtValuta
             // 
-            this.txtValuta.Location = new System.Drawing.Point(208, 324);
+            this.txtValuta.Location = new System.Drawing.Point(208, 333);
             this.txtValuta.Name = "txtValuta";
             this.txtValuta.Size = new System.Drawing.Size(132, 30);
             this.txtValuta.TabIndex = 13;
@@ -164,7 +168,7 @@
             // dtpDatumZakljucenja
             // 
             this.dtpDatumZakljucenja.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDatumZakljucenja.Location = new System.Drawing.Point(208, 77);
+            this.dtpDatumZakljucenja.Location = new System.Drawing.Point(208, 148);
             this.dtpDatumZakljucenja.Name = "dtpDatumZakljucenja";
             this.dtpDatumZakljucenja.Size = new System.Drawing.Size(132, 30);
             this.dtpDatumZakljucenja.TabIndex = 15;
@@ -293,12 +297,54 @@
             this.btnSacuvaj.UseVisualStyleBackColor = false;
             this.btnSacuvaj.Click += new System.EventHandler(this.btnSacuvaj_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(82, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(90, 25);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Vlasnik:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(82, 55);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(76, 25);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Agent:";
+            // 
+            // cmbVlasnik
+            // 
+            this.cmbVlasnik.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVlasnik.FormattingEnabled = true;
+            this.cmbVlasnik.Location = new System.Drawing.Point(208, 12);
+            this.cmbVlasnik.Name = "cmbVlasnik";
+            this.cmbVlasnik.Size = new System.Drawing.Size(131, 33);
+            this.cmbVlasnik.TabIndex = 22;
+            this.cmbVlasnik.SelectedIndexChanged += new System.EventHandler(this.cmbVlasnik_SelectedIndexChanged);
+            // 
+            // cmbAgent
+            // 
+            this.cmbAgent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAgent.FormattingEnabled = true;
+            this.cmbAgent.Location = new System.Drawing.Point(209, 55);
+            this.cmbAgent.Name = "cmbAgent";
+            this.cmbAgent.Size = new System.Drawing.Size(131, 33);
+            this.cmbAgent.TabIndex = 23;
+            this.cmbAgent.SelectedIndexChanged += new System.EventHandler(this.cmbAgent_SelectedIndexChanged);
+            // 
             // PolisaDodajForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
             this.ClientSize = new System.Drawing.Size(708, 430);
+            this.Controls.Add(this.cmbAgent);
+            this.Controls.Add(this.cmbVlasnik);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSacuvaj);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dtpDatumZakljucenja);
@@ -353,5 +399,9 @@
         private System.Windows.Forms.RadioButton rbPutno;
         private System.Windows.Forms.RadioButton rbPoljoprivredno;
         private System.Windows.Forms.Button btnSacuvaj;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cmbVlasnik;
+        private System.Windows.Forms.ComboBox cmbAgent;
     }
 }

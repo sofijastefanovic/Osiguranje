@@ -114,7 +114,10 @@ namespace Osiguranje.Forme
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             PolisaDodajForma otvoriDodaj = new PolisaDodajForma();
-            otvoriDodaj.ShowDialog();
+            if (otvoriDodaj.ShowDialog() == DialogResult.OK) 
+            {
+                UcitajPoliseUBazu();                         
+            }
         }
 
         private void btnObrisiPolisu_Click(object sender, EventArgs e)

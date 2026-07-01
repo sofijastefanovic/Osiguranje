@@ -28,8 +28,8 @@ namespace Osiguranje.Mapiranja
             References(x => x.VlasnikPolise, "id_vlasnika_polise");
             References(x => x.Agent, "id_angazovane_osobe");
 
-            HasMany(x => x.IstorijaIzmena).KeyColumn("broj_polise").Cascade.AllDeleteOrphan().Inverse();
-            HasMany(x => x.DodatnaPokrica).KeyColumn("broj_polise_dodatno").Cascade.AllDeleteOrphan().Inverse();
+            HasMany(x => x.IstorijaIzmena).KeyColumn("broj_polise").Cascade.AllDeleteOrphan();
+            HasMany(x => x.DodatnaPokrica).KeyColumn("broj_polise_dodatno").Cascade.AllDeleteOrphan();
         }
     }
 }
