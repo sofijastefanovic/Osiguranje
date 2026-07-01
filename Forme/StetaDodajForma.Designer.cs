@@ -47,12 +47,18 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.btnSacuvaj = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbOstecenoLice = new System.Windows.Forms.ComboBox();
+            this.cmbPolisa = new System.Windows.Forms.ComboBox();
+            this.cmbPredmetOsiguranja = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(194, 15);
+            this.txtId.Location = new System.Drawing.Point(260, 138);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(156, 30);
             this.txtId.TabIndex = 0;
@@ -60,7 +66,7 @@
             // 
             // txtOpis
             // 
-            this.txtOpis.Location = new System.Drawing.Point(194, 170);
+            this.txtOpis.Location = new System.Drawing.Point(259, 258);
             this.txtOpis.Name = "txtOpis";
             this.txtOpis.Size = new System.Drawing.Size(156, 30);
             this.txtOpis.TabIndex = 1;
@@ -68,7 +74,7 @@
             // 
             // txtLokacija
             // 
-            this.txtLokacija.Location = new System.Drawing.Point(193, 226);
+            this.txtLokacija.Location = new System.Drawing.Point(258, 305);
             this.txtLokacija.Name = "txtLokacija";
             this.txtLokacija.Size = new System.Drawing.Size(157, 30);
             this.txtLokacija.TabIndex = 2;
@@ -76,7 +82,7 @@
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(193, 276);
+            this.txtStatus.Location = new System.Drawing.Point(258, 354);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(156, 30);
             this.txtStatus.TabIndex = 3;
@@ -84,7 +90,7 @@
             // 
             // txtIznos
             // 
-            this.txtIznos.Location = new System.Drawing.Point(194, 322);
+            this.txtIznos.Location = new System.Drawing.Point(258, 401);
             this.txtIznos.Name = "txtIznos";
             this.txtIznos.Size = new System.Drawing.Size(156, 30);
             this.txtIznos.TabIndex = 4;
@@ -131,9 +137,9 @@
             this.groupBox1.Controls.Add(this.rbAutoSteta);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(387, 15);
+            this.groupBox1.Location = new System.Drawing.Point(464, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(236, 157);
+            this.groupBox1.Size = new System.Drawing.Size(259, 157);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vrsta steta";
@@ -141,7 +147,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(150, 20);
+            this.label1.Location = new System.Drawing.Point(149, 147);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 25);
             this.label1.TabIndex = 9;
@@ -150,7 +156,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 62);
+            this.label2.Location = new System.Drawing.Point(35, 179);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(151, 25);
             this.label2.TabIndex = 10;
@@ -159,7 +165,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 118);
+            this.label3.Location = new System.Drawing.Point(13, 219);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(175, 25);
             this.label3.TabIndex = 11;
@@ -168,7 +174,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 170);
+            this.label4.Location = new System.Drawing.Point(22, 263);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(164, 25);
             this.label4.TabIndex = 12;
@@ -177,7 +183,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(88, 226);
+            this.label5.Location = new System.Drawing.Point(87, 310);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 25);
             this.label5.TabIndex = 13;
@@ -186,16 +192,17 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 279);
+            this.label6.Location = new System.Drawing.Point(13, 359);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(175, 25);
             this.label6.TabIndex = 14;
             this.label6.Text = "Status postupka:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 322);
+            this.label7.Location = new System.Drawing.Point(9, 406);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(178, 25);
             this.label7.TabIndex = 15;
@@ -204,7 +211,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(194, 62);
+            this.dateTimePicker1.Location = new System.Drawing.Point(260, 174);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(156, 30);
             this.dateTimePicker1.TabIndex = 16;
@@ -213,7 +220,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(193, 116);
+            this.dateTimePicker2.Location = new System.Drawing.Point(260, 219);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(156, 30);
             this.dateTimePicker2.TabIndex = 17;
@@ -222,7 +229,7 @@
             // btnSacuvaj
             // 
             this.btnSacuvaj.BackColor = System.Drawing.Color.CadetBlue;
-            this.btnSacuvaj.Location = new System.Drawing.Point(424, 190);
+            this.btnSacuvaj.Location = new System.Drawing.Point(513, 198);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(151, 66);
             this.btnSacuvaj.TabIndex = 18;
@@ -230,12 +237,75 @@
             this.btnSacuvaj.UseVisualStyleBackColor = false;
             this.btnSacuvaj.Click += new System.EventHandler(this.btnSacuvaj_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(37, 15);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(151, 25);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Oštećeno lice:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(35, 57);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(78, 25);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Polisa:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(9, 99);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(205, 25);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Predmet osiguranja:";
+            // 
+            // cmbOstecenoLice
+            // 
+            this.cmbOstecenoLice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbOstecenoLice.FormattingEnabled = true;
+            this.cmbOstecenoLice.Location = new System.Drawing.Point(259, 7);
+            this.cmbOstecenoLice.Name = "cmbOstecenoLice";
+            this.cmbOstecenoLice.Size = new System.Drawing.Size(156, 33);
+            this.cmbOstecenoLice.TabIndex = 22;
+            this.cmbOstecenoLice.SelectedIndexChanged += new System.EventHandler(this.cmbOstecenoLice_SelectedIndexChanged);
+            // 
+            // cmbPolisa
+            // 
+            this.cmbPolisa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPolisa.FormattingEnabled = true;
+            this.cmbPolisa.Location = new System.Drawing.Point(260, 49);
+            this.cmbPolisa.Name = "cmbPolisa";
+            this.cmbPolisa.Size = new System.Drawing.Size(155, 33);
+            this.cmbPolisa.TabIndex = 23;
+            this.cmbPolisa.SelectedIndexChanged += new System.EventHandler(this.cmbPolisa_SelectedIndexChanged);
+            // 
+            // cmbPredmetOsiguranja
+            // 
+            this.cmbPredmetOsiguranja.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPredmetOsiguranja.FormattingEnabled = true;
+            this.cmbPredmetOsiguranja.Location = new System.Drawing.Point(260, 96);
+            this.cmbPredmetOsiguranja.Name = "cmbPredmetOsiguranja";
+            this.cmbPredmetOsiguranja.Size = new System.Drawing.Size(155, 33);
+            this.cmbPredmetOsiguranja.TabIndex = 24;
+            this.cmbPredmetOsiguranja.SelectedIndexChanged += new System.EventHandler(this.cmbPredmetOsiguranja_SelectedIndexChanged);
+            // 
             // StetaDodajForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
-            this.ClientSize = new System.Drawing.Size(660, 369);
+            this.ClientSize = new System.Drawing.Size(749, 449);
+            this.Controls.Add(this.cmbPredmetOsiguranja);
+            this.Controls.Add(this.cmbPolisa);
+            this.Controls.Add(this.cmbOstecenoLice);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnSacuvaj);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
@@ -284,5 +354,11 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button btnSacuvaj;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cmbOstecenoLice;
+        private System.Windows.Forms.ComboBox cmbPolisa;
+        private System.Windows.Forms.ComboBox cmbPredmetOsiguranja;
     }
 }

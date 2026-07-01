@@ -602,4 +602,24 @@ namespace Osiguranje
     {
         public int PeriodPutovanja { get; set; }
     }
+
+    // ==================== AUTO STETA BASIC ====================
+    public class AutoStetaBasic : StetaBasic
+    {
+        public string ZapisnikPolicije { get; set; }
+        public string Servis { get; set; }
+    }
+
+    // ==================== IMOVINSKA STETA BASIC ====================
+    public class ImovinskaStetaBasic : StetaBasic
+    {
+        public decimal ProcenaOstecenja { get; set; }
+    }
+
+    // ==================== ZDRAVSTVENA STETA BASIC ====================
+    public class ZdravstvenaStetaBasic : StetaBasic
+    {
+        public string ZdravstvenaDokumenta { get; set; }
+        public string ZdravstvenaUstanova { get; set; }
+    }
 }
