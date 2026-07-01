@@ -87,7 +87,12 @@ namespace Osiguranje.Forme
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             using (ProcenaDodajForma otvoriDodaj = new ProcenaDodajForma())
-            { otvoriDodaj.ShowDialog(); }
+            {
+                if (otvoriDodaj.ShowDialog() == DialogResult.OK)  
+                {
+                    UcitajProceneIzBaze();                         
+                }
+            }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)

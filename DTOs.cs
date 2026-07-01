@@ -622,4 +622,15 @@ namespace Osiguranje
         public string ZdravstvenaDokumenta { get; set; }
         public string ZdravstvenaUstanova { get; set; }
     }
+
+    public class ProcenaBasic
+    {
+        public int StetaId { get; set; }
+        public int AngazovanaOsobaId { get; set; }
+        public DateTime DatumProcene { get; set; }
+        public string MetodProcene { get; set; }
+        public string Nalaz { get; set; }
+        public string Preporuka { get; set; }
+        public decimal ProcenjeniIznos { get; set; }
+    }
 }

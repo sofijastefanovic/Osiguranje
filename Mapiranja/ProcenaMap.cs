@@ -12,15 +12,17 @@ namespace Osiguranje.Mapiranja
     {
         public ProcenaMap()
         {
-            CompositeId(x => x.Id)
-                .KeyReference(y => y.Steta, "ID_STETE") 
-                .KeyReference(y => y.AngazovanaOsoba, "ID_ANGAZOVANE_OSOBE"); 
+            Table("PROCENA");  
 
-            Map(x => x.DatumProcene, "DATUM_PROCENE");
-            Map(x => x.MetodProcene, "METOD_PROCENE");
-            Map(x => x.Nalaz, "NALAZ");
-            Map(x => x.Preporuka, "PREPORUKA");
-            Map(x => x.ProcenjeniIznos, "PROCENJENI_IZNOS");
+            CompositeId(x => x.Id)
+                .KeyReference(y => y.Steta, "steta_id")      
+                .KeyReference(y => y.AngazovanaOsoba, "angazovana_osoba_id");  
+
+            Map(x => x.DatumProcene, "datum_procene");
+            Map(x => x.MetodProcene, "metod_procene");
+            Map(x => x.Nalaz, "nalaz");
+            Map(x => x.Preporuka, "preporuka");
+            Map(x => x.ProcenjeniIznos, "procenjeni_iznos");
         }
     }
 }

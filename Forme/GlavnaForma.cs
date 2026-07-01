@@ -38,8 +38,8 @@ namespace Osiguranje.Forme
 
         private void btnProcena_Click(object sender, EventArgs e)
         {
-            PolisaForma otvoriPolisu = new PolisaForma();
-            otvoriPolisu.ShowDialog();
+            ProcenaForma otvoriProcenu = new ProcenaForma();
+            otvoriProcenu.ShowDialog();
         }
 
         private void btnAngazovana_Click(object sender, EventArgs e)
