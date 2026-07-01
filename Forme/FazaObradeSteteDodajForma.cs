@@ -18,6 +18,16 @@ namespace Osiguranje.Forme
         public FazaObradeSteteDodajForma()
         {
             InitializeComponent();
+            UcitajStete();
+        }
+
+        private void UcitajStete()
+        {
+            var stete = DTOManager.vratiSveStete();
+            cmbSteta.DataSource = stete;
+            cmbSteta.DisplayMember = "Id";       
+            cmbSteta.ValueMember = "Id";
+            cmbSteta.SelectedIndex = -1;
         }
 
         private void txtRedniBroj_TextChanged(object sender, EventArgs e) { }
@@ -29,11 +39,6 @@ namespace Osiguranje.Forme
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(txtRedniBroj.Text, out int rbFaze))
-            {
-                MessageBox.Show("Molimo vas unesite ispravan redni broj faze.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             if (string.IsNullOrWhiteSpace(txtOdgovornoLice.Text))
             {
@@ -47,19 +52,29 @@ namespace Osiguranje.Forme
                 return;
             }
 
+            if (cmbSteta.SelectedValue == null || (int)cmbSteta.SelectedValue == 0)
+            {
+                MessageBox.Show("Izaberite štetu!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             KreiranaFaza = new FazaObradeStete
             {
-                RedniBrojFaze = rbFaze,
                 DatumPocetka = dateTimePicker1.Value,
                 DatumZavrsetka = dateTimePicker2.Value,
                 OdgovornoLice = txtOdgovornoLice.Text,
                 Odluka = txtOdluka.Text,
-                PotrebnaDokumenta = txtDokumentacija.Text
-
+                PotrebnaDokumenta = txtDokumentacija.Text,
+                Steta = new Steta { Id = (int)cmbSteta.SelectedValue }
             };
 
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void cmbSteta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

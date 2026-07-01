@@ -63,6 +63,17 @@ namespace Osiguranje.Forme
                 }
 
                 listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+                foreach (ColumnHeader kolona in listView1.Columns)
+                {
+                    int sirinaSadrzaja = kolona.Width;
+                    kolona.Width = -2;
+
+                    if (sirinaSadrzaja > kolona.Width)
+                    {
+                        kolona.Width = sirinaSadrzaja;
+                    }
+                }
             }
             catch (Exception ex)
             {
