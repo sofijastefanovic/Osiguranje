@@ -12,6 +12,5 @@ namespace Osiguranje.Entiteti
         public virtual decimal Provizija { get; set; }
         public virtual string TipAgenta { get; set; }
 
-        public virtual AngazovanaOsoba AngazovanaOsoba { get; set; }
     }
 }

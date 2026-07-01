@@ -90,8 +90,10 @@ namespace Osiguranje.Forme
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             AngazovanaDodajForma forma = new AngazovanaDodajForma();
-            forma.FormClosed += (s, args) => popuniPodacima();
-            forma.ShowDialog();
+            if (forma.ShowDialog() == DialogResult.OK)  
+            {
+                popuniPodacima();                         
+            }
         }
 
         private void btnObrisi_Click(object sender, EventArgs e)

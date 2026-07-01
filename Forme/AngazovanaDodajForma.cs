@@ -41,20 +41,48 @@ namespace Osiguranje.Forme
 
             try
             {
-                AngazovanaOsobaBasic osoba = new AngazovanaOsobaBasic();
+                string tip = cmbTipOsobe.SelectedItem.ToString();
+                AngazovanaOsobaBasic osoba = null;
+
+                if (tip == "Agent")
+                {
+                    AgentBasic agent = new AgentBasic();
+                    agent.Licensa = licensaAgenta;
+                    agent.Provizija = provizija;
+                    agent.TipAgenta = tipAgenta;
+                    osoba = agent;
+                }
+                else if (tip == "Procenitelj")
+                {
+                    ProceniteljBasic procenitelj = new ProceniteljBasic();
+                    procenitelj.Licensa = licensaProcenitelja;
+                    procenitelj.TipProcenitelja = tipProcenitelja;
+                    osoba = procenitelj;
+                }
+                else if (tip == "Pravnik")
+                {
+                    PravnikBasic pravnik = new PravnikBasic();
+                    pravnik.TipPravnika = tipPravnika;
+                    osoba = pravnik;
+                }
+                else if (tip == "Lekar konsultant")
+                {
+                    osoba = new LekarKonsultantBasic();
+                }
 
                 osoba.Ime = txtIme.Text;
                 osoba.Prezime = txtPrezime.Text;
                 osoba.Kontakt = txtKontakt.Text;
                 osoba.DatumAngazovanja = dtpDatumAngazovanja.Value;
                 osoba.Status = cmbStatus.SelectedItem.ToString();
-                osoba.TipOsobe = cmbTipOsobe.SelectedItem.ToString();
+                osoba.TipOsobe = tip;
 
                 DTOManager.dodajAngazovanu(osoba);
 
                 MessageBox.Show("Angažovana osoba uspešno sačuvana!", "Info",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception ex)
