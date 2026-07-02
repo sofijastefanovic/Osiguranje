@@ -68,8 +68,17 @@ namespace Osiguranje.Forme
                 Steta = new Steta { Id = (int)cmbSteta.SelectedValue }
             };
 
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            try
+            {
+                DTOManager.dodajFazu(KreiranaFaza);
+                MessageBox.Show("Faza uspešno sačuvana!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Greška pri čuvanju faze: {ex.Message}", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cmbSteta_SelectedIndexChanged(object sender, EventArgs e)

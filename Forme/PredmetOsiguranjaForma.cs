@@ -101,8 +101,10 @@ namespace Osiguranje.Forme
         private void btnDODAJ_Click(object sender, EventArgs e)
         {
             PredmetOsiguranjaDodajForma forma = new PredmetOsiguranjaDodajForma();
-            forma.FormClosed += (s, args) => popuniPodacima();
-            forma.ShowDialog();
+            if (forma.ShowDialog() == DialogResult.OK)  
+            {
+                popuniPodacima();                         
+            }
         }
 
         private void listViewPredmetiOsiguranja_SelectedIndexChanged(object sender, EventArgs e)

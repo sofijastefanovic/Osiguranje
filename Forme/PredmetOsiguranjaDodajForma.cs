@@ -71,14 +71,108 @@ namespace Osiguranje.Forme
 
             try
             {
-                PredmetOsiguranjaBasic predmet = new PredmetOsiguranjaBasic();
-                predmet.TipPredmeta = cmbTipPredmeta.SelectedItem.ToString();
+                string tip = cmbTipPredmeta.SelectedItem.ToString();
+                PredmetOsiguranjaBasic predmet = null;
+
+                switch (tip)
+                {
+                    case "Vozilo":
+                        predmet = new VoziloBasic
+                        {
+                            TipPredmeta = tip,
+                            Registracija = registracija,
+                            Marka = marka,
+                            Model = model,
+                            GodinaProizvodnje = godinaProizvodnje,
+                            ImeVlasnika = imeVlasnika,
+                            PrezimeVlasnika = prezimeVlasnika,
+                            BrojPoliseAuto = brojPoliseAuto
+                        };
+                        break;
+
+                    case "Lice":
+                        predmet = new LiceBasic
+                        {
+                            TipPredmeta = tip,
+                            Jmbg = jmbg,
+                            Ime = ime,
+                            Prezime = prezime,
+                            DatumRodjenja = datumRodjenja
+                        };
+                        break;
+
+                    case "Nekretnina":
+                        predmet = new NekretninaBasic
+                        {
+                            TipPredmeta = tip,
+                            Adresa = adresa,
+                            TipObjekta = tipObjekta,
+                            GodinaIzgradnje = godinaIzgradnje,
+                            Povrsina = povrsina,
+                            ProcenjenaVrednost = procenjenaVrednost
+                        };
+                        break;
+
+                    case "Pokretna imovina":
+                        predmet = new PokretnaImovinaBasic
+                        {
+                            TipPredmeta = tip,
+                            SerijskiBroj = serijskiBroj,
+                            Naziv = naziv,
+                            Opis = opis,
+                            ProcenjenaVrednost = procenjenaVrednostPokretna
+                        };
+                        break;
+
+                    case "Usev":
+                        predmet = new UsevBasic
+                        {
+                            TipPredmeta = tip,
+                            Vrsta = vrstaUseva,
+                            Lokacija = lokacijaUseva,
+                            ProcenjenaVrednost = procenjenaVrednostUseva
+                        };
+                        break;
+
+                    case "Životinja":
+                        predmet = new ZivotinjaBasic
+                        {
+                            TipPredmeta = tip,
+                            Vrsta = vrstaZivotinje,
+                            Lokacija = lokacijaZivotinje,
+                            ProcenjenaVrednost = procenjenaVrednostZivotinje
+                        };
+                        break;
+
+                    case "Odgovornost":
+                        predmet = new OdgovornostBasic
+                        {
+                            TipPredmeta = tip,
+                            Opis = opisOdgovornosti
+                        };
+                        break;
+
+                    case "Putovanje":
+                        predmet = new PutovanjeBasic
+                        {
+                            TipPredmeta = tip,
+                            PeriodPutovanja = periodPutovanja
+                        };
+                        break;
+
+                    default:
+                        predmet = new PredmetOsiguranjaBasic
+                        {
+                            TipPredmeta = tip
+                        };
+                        break;
+                }
 
                 DTOManager.dodajPredmet(predmet);
-
                 MessageBox.Show("Predmet uspešno sačuvan!", "Info",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception ex)
